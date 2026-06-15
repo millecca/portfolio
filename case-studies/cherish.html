@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study — Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/global.css" />
+</head>
+<body>
+
+  <!-- ─── TOP NAV ─── -->
+  <nav class="top-nav" aria-label="Site navigation">
+    <a href="../index.html" class="logo">Lang Delapa</a>
+    <ul class="top-nav-links">
+      <li><a href="/work">Work</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="mailto:you@email.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── PAGE LAYOUT ─── -->
+  <div class="page-layout">
+
+    <!-- ─── SIDE NAV ─── -->
+    <aside>
+      <nav class="side-nav" aria-label="Case study sections">
+        <ul id="side-nav-list">
+          <li><a href="#overview" class="active">Overview</a></li>
+          <li><a href="#context">Context</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#solution-1">Design</a></li>
+          <li><a href="#outcome">Outcome</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ─── CONTENT ─── -->
+    <main class="content">
+
+      <!-- Hero -->
+      <div class="img-block"><img src="../images/cherish/hero.png" alt="Cherish hero image" /></div>
+      <header class="case-study-header" id="overview">
+        <p class="case-study-tag">Cherish | Fall Monitoring System
+        </p>
+        <h1>Helping nursing homes staff detect and respond to falls</h1>
+        <p>I worked with an early-stage startup to design a fall monitoring platform, using design research to ensure product-market fit in assisted living care facilities.</p>
+        <dl class="meta-row">
+          <div class="meta-item"><dt>My Role</dt><dd>UX, UI, User Research</dd></div>
+          <div class="meta-item"><dt>Timeline</dt><dd>4 months (Spring 2025)</dd></div>
+          <div class="meta-item"><dt>Industry</dt><dd>Healthcare, IOT</dd></div>
+        </dl>
+        <br>
+      </header>
+
+
+      <!-- Context -->
+      <section class="section" id="context">
+        <p class="section-label">Context</p>
+        <h2>A fall detector that prioritizes privacy.</h2>
+        <p>While most offerings used cameras or wearables, Cherish was building a fall monitor that used AI and radar instead. This new alternative allowed older adults to live safely without feeling like there was something getting in the way.</p>
+        <p>Nursing homes were key partners, acting as investors, consumers, and a real-world environment to test the emerging technology.</p>
+        <div class="img-block"><img src="../images/cherish/context2.png" alt="Cherish context image" /></div>
+        <p class="caption">The wall-mounted device feels more like a lamp than a health monitor.</p>
+      </section>
+
+      <!-- Problem -->
+      <section class="section" id="problem">
+        <p class="section-label">Problem</p>
+        <h2>Nurses work in a high stress environment where new tools add friction.</h2>
+        <p>While the tech could significantly improve patient outcomes, it only mattered if it worked with existing workflows. Delivering value meant helping nurses identify and respond to incidents as quickly as possible.</p>
+        <p>At the same time, the product was still evolving. The device captured powerful information but offered little feedback, and we had to translate this “black box” into actionable insights, accounting for the device’s limitations and functionalities that could at times be unclear.</p>
+        <div class="compare-slider" data-compare-slider data-start="50">
+          <div class="compare-slider-viewport">
+            <img
+              class="compare-slider-after"
+              src="../images/cherish/After.png"
+              alt="Redesigned Cherish dashboard"
+              width="2400"
+              height="1350"
+            />
+            <div class="compare-slider-before">
+              <img
+                src="../images/cherish/Before.png"
+                alt="Original Cherish dashboard"
+                width="2400"
+                height="1350"
+              />
+            </div>
+            <span class="compare-slider-label compare-slider-label-before">Before</span>
+            <span class="compare-slider-label compare-slider-label-after">After</span>
+            <div
+              class="compare-slider-handle"
+              role="slider"
+              aria-label="Compare before and after dashboards"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="50"
+              tabindex="0"
+            >
+              <span class="compare-slider-handle-line" aria-hidden="true"></span>
+              <span class="compare-slider-handle-thumb" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+        <p class="caption">The existing dashboard was just a table of vitals. It didn't prioritize the fall alerts—the product's entire value prop.</p>
+      </section>
+
+      <!-- Research -->
+      <section class="section" id="research">
+        <p class="section-label">Research</p>
+        <h2>Nurses don’t just want to detect falls. They want to prevent them before they happen.</h2>
+        <p>We visited three different nursing homes to understand their workflows, challenges, and possible barriers to adoption. Numerous interviews, usability tests, and observational sessions helped us understand how nursing homes currently dealt with falling.</p>
+        <div class="content-blocks">
+          <article class="content-block">
+            <h3 class="content-block-title">Residents want to move around independently, but even basic movements can lead to falls</h3>
+            <p class="content-block-body">Getting out of bed or into a wheelchair are high-risk moments in nursing homes. Nurses want to monitor these “self-transfers” without getting overwhelmed by alerts.</p>
+          </article>
+          <article class="content-block">
+            <h3 class="content-block-title">Staffing inconsistencies and poor communication make it harder for nurses to understand each person’s fall risk</h3>
+            <p class="content-block-body">Nurses often swap between patients, wings, and even facilities, and in the chaotic environment don’t always have up-to-date context on each resident’s fall risk.</p>
+          </article>
+          <article class="content-block">
+            <h3 class="content-block-title">Fall monitoring poses both a legal liability and protection for nursing homes</h3>
+            <p class="content-block-body">Nurses are worried the device’s data could be used against them in court, but knowing an injury was caused by a fall or proving a rapid response time would protect them.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Solution 1 -->
+      <section class="section" id="solution-1">
+        <p class="section-label">Solution 1</p>
+        <h2>Warning nurses about risky resident movement</h2>
+        <p>The original dashboard only alerted nurses about falls that had already happened. We introduced a lower-priority alert type focusing on potential falls.</p>
+        <div class="img-block"><img src="../images/cherish/solution1_1.png" alt="Solution 1" /></div>
+        <p class="caption">Alerts for risky movements like getting out of bed at night.</p>
+        <div class="img-block"><img src="../images/cherish/solution1_2.png" alt="Solution 2" /></div>
+        <p class="caption">To avoid excessive alerts, nurses can modify which movements trigger alerts in a certain patient.</p>
+      </section>
+
+      <!-- Solution 2 -->
+      <section class="section" id="solution-2">
+        <p class="section-label">Solution 2</p>
+        <h2>Adding patient notes and tags</h2>
+        <p>Nurses can add notes for clear communication on what care a resident needs. Tags give an "at a glance" look at a patient's fall risk, whether they have a history of falling or they're a new patient whose behavior is still unclear.</p>
+        <div class="img-block"><img src="../images/cherish/solution2.png" alt="Solution 2" /></div>
+        <p class="caption">Adding a note from the patient profile.</p>
+      </section>
+
+      <!-- Solution 3 -->
+      <section class="section" id="solution-3">
+        <p class="section-label">Solution 3</p>
+        <h2>Keeping track of incident response times</h2>
+        <p>The device can detect who's who when it comes to residents, but it could only see there was a nurse in the room, not the specific nurse. To make sure nurses were actually going to check on residents after a fall, we introduced a timeline that would show exactly when a nurse entered the room after an incident.</p>
+        <div class="img-block"><img src="../images/cherish/solution3.png" alt="Solution 3" /></div>
+        <p class="caption">A green line shows when a nurse entered the room and how long they were there for.</p>
+      </section>
+
+      <!-- Solution 4 -->
+      <section class="section" id="solution-4">
+        <p class="section-label">Solution 4</p>
+        <h2>Your section heading.</h2>
+        <p>Replace this placeholder text with the actual content for this solution.</p>
+        <div class="img-block">Solution 4 image</div>
+      </section>
+
+      <!-- Solution 5 -->
+      <section class="section" id="solution-5">
+        <p class="section-label">Solution 5</p>
+        <h2>Your section heading.</h2>
+        <p>Replace this placeholder text with the actual content for this solution.</p>
+        <div class="img-block">Solution 5 image</div>
+      </section>
+
+      <!-- Solution 6 -->
+      <section class="section" id="solution-6">
+        <p class="section-label">Solution 6</p>
+        <h2>Your section heading.</h2>
+        <p>Replace this placeholder text with the actual content for this solution.</p>
+        <div class="img-block">Solution 6 image</div>
+      </section>
+
+      <!-- Outcome -->
+      <section class="section" id="outcome">
+        <p class="section-label">Outcome</p>
+        <h2>Your section heading.</h2>
+        <p>Lead with measurable results if you have them.</p>
+        <div class="content-blocks">
+          <article class="content-block">
+            <h3 class="content-block-title">Insights shaped the entire product experience, not just screens.</h3>
+            <p class="content-block-body">Replace this placeholder text with the actual content for this outcome.</p>
+          </article>
+          <article class="content-block">
+            <h3 class="content-block-title">Outcome heading two</h3>
+            <p class="content-block-body">Replace this placeholder text with the actual content for this outcome.</p>
+          </article>
+          <article class="content-block">
+            <h3 class="content-block-title">Outcome heading three</h3>
+            <p class="content-block-body">Replace this placeholder text with the actual content for this outcome.</p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ─── SEE MORE WORK ─── -->
+  <section class="see-more" aria-label="More work">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+      <p class="see-more-label">More work</p>
+      <div class="work-grid">
+        <a href="/case-study/project-two" class="work-card">
+          <div class="work-card-img">Project image</div>
+          <p class="work-card-title">Project Two</p>
+          <p class="work-card-subtitle">Short descriptor</p>
+        </a>
+        <a href="/case-study/project-three" class="work-card">
+          <div class="work-card-img">Project image</div>
+          <p class="work-card-title">Project Three</p>
+          <p class="work-card-subtitle">Short descriptor</p>
+        </a>
+        <a href="/case-study/project-four" class="work-card">
+          <div class="work-card-img">Project image</div>
+          <p class="work-card-title">Project Four</p>
+          <p class="work-card-subtitle">Short descriptor</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SCROLL SPY ─── -->
+  <script>
+    const navLinks = document.querySelectorAll('#side-nav-list a');
+    const topNavHeight = 56;
+
+    const sectionNavMap = {
+      overview: '#overview',
+      context: '#context',
+      problem: '#problem',
+      research: '#research',
+      'solution-1': '#solution-1',
+      'solution-2': '#solution-1',
+      'solution-3': '#solution-1',
+      'solution-4': '#solution-1',
+      'solution-5': '#solution-1',
+      'solution-6': '#solution-1',
+      outcome: '#outcome',
+    };
+
+    const sectionOrder = [
+      'overview',
+      'context',
+      'problem',
+      'research',
+      'solution-1',
+      'solution-2',
+      'solution-3',
+      'solution-4',
+      'solution-5',
+      'solution-6',
+      'outcome',
+    ];
+
+    function getActiveSectionId() {
+      const scrollY = window.scrollY + topNavHeight + 40;
+      let active = sectionOrder[0];
+      for (const id of sectionOrder) {
+        const section = document.getElementById(id);
+        if (section && section.offsetTop <= scrollY) active = id;
+      }
+      return active;
+    }
+
+    function updateNav() {
+      const activeHref = sectionNavMap[getActiveSectionId()];
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === activeHref);
+      });
+    }
+
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  </script>
+  <script src="../scripts/compare-slider.js"></script>
+  <script src="../scripts/image-lightbox.js"></script>
+
+</body>
+</html>
