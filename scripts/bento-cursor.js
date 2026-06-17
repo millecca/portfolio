@@ -1,9 +1,17 @@
-document.querySelectorAll('.bento-card-media').forEach((media) => {
-  const cta = media.querySelector('.bento-card-cta');
-  if (!cta) return;
+document.querySelectorAll('.bento-card').forEach((card) => {
+  const media = card.querySelector('.bento-card-media');
+  const cta = card.querySelector('.bento-card-cta');
+  if (!media || !cta) return;
 
-  media.addEventListener('mouseenter', () => {
+  function moveCta(clientX, clientY) {
+    const cardRect = card.getBoundingClientRect();
+    cta.style.left = `${clientX - cardRect.left}px`;
+    cta.style.top = `${clientY - cardRect.top}px`;
+  }
+
+  media.addEventListener('mouseenter', (event) => {
     cta.classList.add('is-visible');
+    moveCta(event.clientX, event.clientY);
   });
 
   media.addEventListener('mouseleave', () => {
@@ -11,11 +19,6 @@ document.querySelectorAll('.bento-card-media').forEach((media) => {
   });
 
   media.addEventListener('mousemove', (event) => {
-    const rect = media.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    cta.style.left = `${x}px`;
-    cta.style.top = `${y}px`;
+    moveCta(event.clientX, event.clientY);
   });
 });
