@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name — Product Designer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet" />
+  <title>Lang Delapa — Product Designer</title>
   <link rel="stylesheet" href="styles/global.css" />
 </head>
 <body>
@@ -17,56 +14,97 @@
     <ul class="top-nav-links">
       <li><a href="index.html">Work</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="mailto:you@email.com">Contact</a></li>
+      <li><a href="mailto:you@email.com" class="top-nav-cta">Contact</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <h1>Your one-line bio or tagline goes here.</h1>
-    <p>A sentence or two about what you do and who you do it for. Keep it short — your work speaks louder.</p>
+    <p class="hero-eyebrow">[ Product Designer with 3+ years of experience ]</p>
+    <h1>Where <span class="hero-emphasis">smart thinking</span> meets <em>beautiful execution.</em></h1>
+    <p>Lang Delapa crafts meaningful experiences that solve complex problems with simplicity.</p>
   </section>
 
   <!-- WORK -->
   <section class="work-section">
-    <p class="work-label">Selected work</p>
-    <div class="work-grid">
+    <h2 class="work-label">Selected Work</h2>
+    <div class="bento-grid">
 
-      <a href="case-studies/cherish.html" class="work-card">
-        <div class="work-card-img">
-          <img src="images/cherish/hero-png.png" alt="Helping nursing homes staff detect and respond to falls." />
+      <a href="case-studies/cherish.html" class="bento-card">
+        <div class="bento-card-media">
+          <img src="images/cherish/hero.png" alt="Helping nursing homes respond to falls" />
+          <span class="bento-card-cta">View case study</span>
         </div>
-        <p class="work-card-title">Helping nursing homes staff detect and respond to falls.</p>
-        <p class="work-card-subtitle">I worked with an early-stage startup to design a fall monitoring platform, using design research to ensure product-market fit in assisted living care facilities.</p>
+        <div class="bento-card-body">
+          <div class="bento-card-meta">
+            <h2 class="bento-card-title">Helping nursing homes respond to falls</h2>
+            <ul class="bento-card-tags" aria-label="Project tags">
+              <li>Healthcare</li>
+              <li>IOT</li>
+              <li>Startup</li>
+            </ul>
+          </div>
+          <p class="bento-card-desc">I worked with an early-stage startup to design a fall monitoring platform, using design research to ensure product-market fit in assisted living care facilities.</p>
+        </div>
       </a>
 
-      <a href="case-studies/project-two.html" class="work-card">
-        <div class="work-card-img">
-          Cover image
+      <a href="case-studies/project-two.html" class="bento-card">
+        <div class="bento-card-media">
+          <img src="images/cherish/hero.png" alt="Improving the experience of taking the commuter rail" />
+          <span class="bento-card-cta">View case study</span>
         </div>
-        <p class="work-card-title">Project Two</p>
-        <p class="work-card-subtitle">Short descriptor — company or type of work</p>
+        <div class="bento-card-body">
+          <div class="bento-card-meta">
+            <h2 class="bento-card-title">Improving the experience of taking the commuter rail</h2>
+            <ul class="bento-card-tags" aria-label="Project tags">
+              <li>Transit</li>
+              <li>Mobile</li>
+              <li>Research</li>
+            </ul>
+          </div>
+          <p class="bento-card-desc">Description goes here</p>
+        </div>
       </a>
 
-      <a href="case-studies/project-three.html" class="work-card">
-        <div class="work-card-img">
-          Cover image
+      <a href="case-studies/project-three.html" class="bento-card">
+        <div class="bento-card-media">
+          <img src="images/cherish/hero.png" alt="An LSAT study platform that stands out from the crowd" />
+          <span class="bento-card-cta">View case study</span>
         </div>
-        <p class="work-card-title">Project Three</p>
-        <p class="work-card-subtitle">Short descriptor — company or type of work</p>
+        <div class="bento-card-body">
+          <div class="bento-card-meta">
+            <h2 class="bento-card-title">An LSAT study platform that stands out from the crowd</h2>
+            <ul class="bento-card-tags" aria-label="Project tags">
+              <li>EdTech</li>
+              <li>Web</li>
+              <li>Startup</li>
+            </ul>
+          </div>
+          <p class="bento-card-desc">Description goes here</p>
+        </div>
       </a>
 
-      <a href="case-studies/project-four.html" class="work-card">
-        <div class="work-card-img">
-          Cover image
+      <a href="case-studies/project-four.html" class="bento-card">
+        <div class="bento-card-media">
+          <img src="images/cherish/hero.png" alt="An LSAT study platform that stands out from the crowd" />
+          <span class="bento-card-cta">View case study</span>
         </div>
-        <p class="work-card-title">Project Four</p>
-        <p class="work-card-subtitle">Short descriptor — company or type of work</p>
+        <div class="bento-card-body">
+          <div class="bento-card-meta">
+            <h2 class="bento-card-title">An LSAT study platform that stands out from the crowd</h2>
+            <ul class="bento-card-tags" aria-label="Project tags">
+              <li>EdTech</li>
+              <li>Web</li>
+              <li>Startup</li>
+            </ul>
+          </div>
+          <p class="bento-card-desc">Description goes here</p>
+        </div>
       </a>
 
     </div>
   </section>
 
-  <script src="scripts/image-lightbox.js"></script>
+  <script src="scripts/bento-cursor.js"></script>
 </body>
 </html>

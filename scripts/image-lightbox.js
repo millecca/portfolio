@@ -1,5 +1,5 @@
 (function () {
-  const ZOOMABLE_SELECTOR = '.img-block img[src], .work-card-img img[src]';
+  const ZOOMABLE_SELECTOR = '.img-block img[src]';
 
   let lightbox;
   let lightboxImg;
