@@ -39,13 +39,15 @@
 :root {
   --color-bg: #FDFBF7;
   --color-text: #3D2424;
-  --color-text-muted: #634F4E;
-  --color-accent: #F8F5ED;
+  --color-text-main: #3D2424;
+  --color-text-muted: #735E5D;
+  --color-accent: #F8F1E0;
   --color-stroke: #CAC3B6;
+  --color-stroke-hover: color-mix(in srgb, var(--color-stroke) 50%, transparent);
   --color-border: #CAC3B6;
   --nav-top-height: 56px;
   --side-nav-width: 180px;
-  --content-max: 720px;
+  --content-max: 800px;
   --space-label-to-title: 0.75rem;
   --space-title-to-body: 1.125rem;
   --page-max: 1320px;
@@ -79,6 +81,18 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 2.5rem;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.top-nav.is-hidden {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .top-nav { transition: none; }
 }
 
 .top-nav .logo {
@@ -102,14 +116,16 @@ body {
 .top-nav-links a {
   font-family: var(--font-sans);
   font-size: 1rem;
-  color: var(--color-text-muted);
+  color: var(--color-text-main);
   text-decoration: none;
   transition: color 150ms ease;
   letter-spacing: -0.02em;
 }
 
 .top-nav-links a:not(.top-nav-cta):hover {
-  color: var(--color-text);
+  color: var(--color-text-main);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .top-nav-cta {
@@ -117,11 +133,15 @@ body {
   border: 1px solid var(--color-stroke);
   padding: 0.5rem 1.125rem;
   border-radius: 6px;
+  color: var(--color-text-main);
+  text-decoration: none;
+  transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .top-nav-cta:hover {
-  background: var(--color-accent);
-  color: var(--color-text);
+  background: var(--color-stroke-hover);
+  color: var(--color-text-main);
+  text-decoration: none;
 }
 
 /* ─── IMAGES ─── */
@@ -443,6 +463,11 @@ body.lightbox-open {
   gap: 4rem;
 }
 
+.page-layout > aside,
+.page-layout > .content {
+  min-width: 0;
+}
+
 /* ─── SIDE NAV ─── */
 .side-nav {
   position: sticky;
@@ -563,9 +588,8 @@ h2 {
   margin-bottom: var(--space-label-to-title);
 }
 
-.section p {
+.section p:not(.section-label):not(.body-sm) {
   margin-bottom: 1.25rem;
-  color: var(--color-text);
   line-height: 1.65;
 }
 
@@ -603,6 +627,323 @@ h2 {
   letter-spacing: -0.02em;
   color: var(--color-text);
   margin-bottom: 0;
+}
+
+/* ─── STEPS CARD ─── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.steps-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid var(--color-stroke);
+  border-radius: 0.5rem;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 40%, transparent) 0%, transparent 100%);
+  transition: transform 0.3s ease;
+}
+
+.steps-card:hover {
+  transform: translateY(-10px);
+}
+
+.steps-card-number {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.steps-card-title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.steps-card .body-sm {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  max-width: none;
+}
+
+.steps-card-image {
+  width: 100%;
+  height: 140px;
+  margin-top: auto;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  border: 0.5px solid var(--color-stroke);
+  background: #F1EBDD;
+}
+
+.steps-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── DESIGN STACK ─── */
+/* Transforms read right-to-left: final translate = spread position, rotate = tilt, first translate = center anchor */
+.design-stack {
+  position: relative; /* positioning context for .stack and .card */
+  width: 100%; /* full content width */
+  height: 400px; /* stage height — increase if spread cards get clipped */
+  margin: 2rem 0; /* vertical spacing from body text above/below */
+  overflow: visible; /* don't clip cards when they spread out on hover */
+}
+
+.design-stack .stack {
+  position: relative; /* anchor point for absolutely positioned cards */
+  width: 100%; /* fills .design-stack */
+  height: 100%; /* fills .design-stack */
+}
+
+.design-stack .card {
+  position: absolute; /* cards stack on top of each other at the center */
+  width: 406px; /* card width — scaled 1.5% from 400px */
+  height: 264px; /* card height — scaled 1.5% from 260px */
+  border-radius: 12px; /* rounded corners on each card */
+  border: 0.5px solid color-mix(in srgb, var(--color-stroke) 50%, transparent); /* subtle half-opacity border */
+  box-shadow: 0 0 2.282px 0 rgba(0, 0, 0, 0.08), 0 2.282px 6.846px 0 rgba(0, 0, 0, 0.10), 0 9.431px 21.691px 3.537px rgba(0, 0, 0, 0.05), 0 11.788px 8.936px -9.431px rgba(0, 0, 0, 0.03); /* layered drop shadow */
+  overflow: hidden; /* clip wireframe image to card radius */
+  top: 50%; /* vertical center of .stack */
+  left: 50%; /* horizontal center of .stack */
+  transform-origin: center center; /* rotate around the card's own center */
+  transition: transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1); /* 0.45s = speed; cubic-bezier overshoots for physical feel */
+}
+
+.design-stack .card img {
+  width: 100%; /* fill card width */
+  height: 100%; /* fill card height */
+  object-fit: cover; /* crop wireframe to fill card */
+  display: block; /* remove inline gap below image */
+}
+
+/* Card 1 — bottom of pile, spreads LEFT on hover */
+.design-stack .card:nth-child(1) {
+  transform:
+    translate(-50%, -50%) /* center card on the anchor point */
+    rotate(-6deg)           /* resting tilt — straightens to 0deg on hover */
+    translate(-8px, 4px);  /* resting offset — small nudge left (-8px) and down (4px) */
+  transition-delay: 0.08s; /* trails in last when hover ends */
+  z-index: 1; /* sits behind cards 2 and 3 */
+}
+
+/* Card 2 — middle of pile, stays centered on hover */
+.design-stack .card:nth-child(2) {
+  transform:
+    translate(-50%, -50%) /* center card on the anchor point */
+    rotate(-2deg)           /* resting tilt — straightens to 0deg on hover */
+    translate(-2px, 2px);  /* resting offset — tiny nudge left and down */
+  transition-delay: 0.04s; /* middle of the stagger sequence */
+  z-index: 2; /* sits above card 1, below card 3 */
+}
+
+/* Card 3 — top of pile, spreads RIGHT on hover */
+.design-stack .card:nth-child(3) {
+  transform:
+    translate(-50%, -50%) /* center card on the anchor point */
+    rotate(4deg)            /* resting tilt — straightens to 0deg on hover */
+    translate(6px, -2px);  /* resting offset — small nudge right (6px) and up (-2px) */
+  transition-delay: 0s; /* leads in first when hover ends */
+  z-index: 3; /* sits on top of the pile */
+}
+
+/* HOVER — Card 1 slides left */
+.design-stack .stack:hover .card:nth-child(1) {
+  transform:
+    translate(-50%, -50%)    /* center card on the anchor point */
+    rotate(-2deg)              /* straighten — no tilt when spread */
+    translate(-183px, 0);     /* SPREAD LEFT: scaled 1.5% from -180px */
+  transition-delay: 0s; /* leads out first on hover */
+}
+
+/* HOVER — Card 2 stays in the middle */
+.design-stack .stack:hover .card:nth-child(2) {
+  transform:
+    translate(-50%, -50%) /* center card on the anchor point */
+    rotate(0deg)           /* straighten — no tilt when spread */
+    translate(0, 0);       /* stays centered */
+  transition-delay: 0.04s; /* middle of the stagger sequence */
+}
+
+/* HOVER — Card 3 slides right */
+.design-stack .stack:hover .card:nth-child(3) {
+  transform:
+    translate(-50%, -50%)   /* center card on the anchor point */
+    rotate(2deg)             /* straighten — no tilt when spread */
+    translate(183px, 0);     /* SPREAD RIGHT: scaled 1.5% from 180px */
+  transition-delay: 0.08s; /* trails out last on hover */
+}
+
+/* ─── h3 + body-sm ─── */
+.h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-synthesis: none;
+  font-variation-settings: var(--serif-variation-regular);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  max-width: 55ch;
+}
+
+.h3 em {
+  font-style: italic;
+}
+
+.body-sm {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  margin-top: 0.75rem;
+  max-width: 52ch;
+  margin-bottom: 0;
+}
+
+/* ─── FEATURES SCROLL ─── */
+.features-block {
+  margin-top: 0;
+}
+
+.scroll-driver {
+  height: calc((var(--feature-count, 4) + 1) * 100vh);
+}
+
+.features-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  background: var(--color-bg);
+  box-sizing: border-box;
+}
+
+.features-sticky .section-label {
+  margin-bottom: 0;
+}
+
+.features-sticky > h2 {
+  margin-bottom: 0;
+}
+
+.features-sticky > p:not(.body-sm) {
+  margin-bottom: 0;
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.video-panel {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.video-panel.active {
+  opacity: 1;
+  position: relative;
+}
+
+.video-panel video,
+.video-placeholder {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  border: 0.5px solid rgba(44, 42, 36, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.pagination-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--color-stroke) 40%, transparent);
+  transition: all 0.3s;
+}
+
+.dot.active {
+  background: var(--color-text-main);
+  width: 18px;
+}
+
+.feature-text {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.feature-text-content {
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.feature-text-content.is-transitioning {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.feature-num {
+  align-self: flex-end;
+}
+
+/* ─── INSIGHT LIST ─── */
+.research-subsection {
+  margin-top: 4rem;
+}
+
+.insight-list {
+  margin-top: 2rem;
+}
+
+.insight-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-stroke);
+}
+
+.insight-row:last-child {
+  border-bottom: 1px solid var(--color-stroke);
+}
+
+.insight-row-number {
+  font-family: var(--font-sans);
+  font-size: 5rem;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--color-text-muted) 20%, transparent);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  align-self: flex-end;
 }
 
 /* ─── COMPARE SLIDER ─── */
@@ -834,7 +1175,7 @@ h2 {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   .page-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding: 0 1.5rem;
     gap: 0;
   }
@@ -842,6 +1183,7 @@ h2 {
   .side-nav {
     position: static;
     padding: 2rem 0 0;
+    max-width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -870,6 +1212,35 @@ h2 {
 @media (max-width: 700px) {
   .bento-grid { grid-template-columns: 1fr; }
   .bento-card-tags { justify-content: flex-start; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .steps-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 38%);
+    grid-template-rows: auto auto 1fr;
+    column-gap: 0.75rem;
+    align-items: start;
+  }
+  .steps-card-number,
+  .steps-card-title,
+  .steps-card .body-sm {
+    grid-column: 1;
+    min-width: 0;
+  }
+  .steps-card-number { margin-bottom: 0.5rem; }
+  .steps-card .body-sm { margin-bottom: 0; }
+  .steps-card-image {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    height: 108px;
+    margin-top: 0;
+    align-self: end;
+  }
+  .insight-row { grid-template-columns: 1fr; }
+  .insight-row-number { display: none; }
+  .feature-text { grid-template-columns: 1fr; }
+  .feature-num { display: none; }
   .hero h1 { font-size: 2.75rem; }
   .hero { padding: 3rem 1.5rem 2rem; }
   .work-section { padding: 1.5rem 1.5rem 5rem; }
