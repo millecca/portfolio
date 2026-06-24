@@ -42,7 +42,21 @@
     <main class="content">
 
       <!-- Hero -->
-      <div class="img-block"><img src="../images/cherish/hero.png" alt="Cherish hero image" /></div>
+      <div class="hero-video-block" data-hero-video>
+        <div class="hero-video-frame">
+          <video
+            class="hero-video"
+            src="../videos/cherish/hero-video.mp4"
+            width="2880"
+            height="1800"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Cherish dashboard demo video. Tap to pause or play."
+          ></video>
+        </div>
+      </div>
       <header class="case-study-header" id="overview">
         <p class="case-study-tag">Cherish | Fall Monitoring System
         </p>
@@ -317,6 +331,7 @@
     updateNav();
   </script>
   <script src="../scripts/nav-scroll.js"></script>
+  <script src="../scripts/hero-video.js"></script>
   <script src="../scripts/compare-slider.js"></script>
   <script src="../scripts/image-lightbox.js"></script>
   <script src="../scripts/features-scroll.js"></script>

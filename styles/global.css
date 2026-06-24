@@ -57,6 +57,13 @@
   --serif-variation-regular: 'wght' 380, 'opsz' 16;
   --serif-variation-emphasis: 'wght' 580, 'opsz' 16;
   --serif-variation-medium: 'wght' 480, 'opsz' 16;
+
+  /* SDS shadow tokens (Figma Simple Design System) */
+  --sds-size-depth-0: 0rem;
+  --sds-size-depth-100: 0.25rem;
+  --sds-size-depth-negative-025: -0.0625rem;
+  --sds-color-black-100: #0c0c0d0d;
+  --sds-color-black-200: #0c0c0d1a;
 }
 
 html { scroll-behavior: smooth; }
@@ -164,6 +171,46 @@ img {
   border-radius: 0;
   border: none;
   cursor: zoom-in;
+}
+
+/* ─── HERO VIDEO ─── */
+.hero-video-block {
+  container-type: size;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #E8E4DD;
+  border: 1px solid var(--color-stroke);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 6%;
+  padding-inline: 5%;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
+.hero-video-frame {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    var(--sds-size-depth-0) 2.28px 9.122px var(--sds-size-depth-negative-025) var(--sds-color-black-200),
+    var(--sds-size-depth-0) 0.76px var(--sds-size-depth-100) var(--sds-size-depth-negative-025) var(--sds-color-black-100);
+  line-height: 0;
+  max-width: 100%;
+  transform: scale(1.1);
+  transform-origin: center;
+}
+
+.hero-video {
+  display: block;
+  aspect-ratio: 16 / 10;
+  width: min(100cqw, calc(100cqh * 16 / 10));
+  height: auto;
+  border-radius: 11px;
+  cursor: pointer;
 }
 
 /* ─── IMAGE LIGHTBOX ─── */
