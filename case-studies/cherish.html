@@ -42,10 +42,10 @@
     <main class="content">
 
       <!-- Hero -->
-      <div class="hero-video-block" data-hero-video>
-        <div class="hero-video-frame">
+      <div class="screen-demo screen-demo--lead" data-screen-demo>
+        <div class="screen-demo-frame">
           <video
-            class="hero-video"
+            class="screen-demo-video"
             src="../videos/cherish/hero-video.mp4"
             width="2880"
             height="1800"
@@ -195,42 +195,121 @@
       </section>
 
       <!-- The Design -->
-      <section class="section" id="the-design">
-        <div class="features-block" data-features-scroll>
+      <section class="section section--features" id="the-design">
+        <div class="features-block features-block--stack" data-features-scroll>
+          <div class="features-intro">
+            <p class="section-label">The Design</p>
+            <h2>Statement of what we made. A dashboard that..</h2>
+            <p>Replace this placeholder text with the actual content for this section.</p>
+          </div>
+
           <div class="scroll-driver">
             <div class="features-sticky">
-              <p class="section-label">The Design</p>
-              <h2>Statement of what we made. A dashboard that..</h2>
-              <p>Replace this placeholder text with the actual content for this section.</p>
+              <div class="features-items">
+                <article class="feature-item">
+                  <div class="feature-item-media">
+                    <div class="video-panel active" data-feature-panel="0" aria-hidden="false">
+                      <div class="screen-demo" data-screen-demo>
+                        <div class="screen-demo-frame">
+                          <video
+                            class="screen-demo-video"
+                            src="../videos/cherish/risky-movement.mp4"
+                            width="2880"
+                            height="1800"
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            aria-label="Demo of detecting new types of resident movement. Tap to pause or play."
+                          ></video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="feature-item-text">
+                    <div class="feature-item-text-content">
+                      <h3 class="h3">Detecting for new types of movements</h3>
+                      <p class="body-sm">The original device only detected whether someone was standing, in bed, or on the ground. But most nursing home residents used mobility aids like walkers.</p>
+                    </div>
+                    <span class="feature-num insight-row-number">01</span>
+                  </div>
+                </article>
 
-              <div class="video-wrap">
-                <div class="video-panel active" data-feature-panel="0" aria-hidden="false">
-                  <div class="video-placeholder" style="background: #E8DFD0;"></div>
-                </div>
-                <div class="video-panel" data-feature-panel="1" aria-hidden="true">
-                  <div class="video-placeholder" style="background: #D4E4E8;"></div>
-                </div>
-                <div class="video-panel" data-feature-panel="2" aria-hidden="true">
-                  <div class="video-placeholder" style="background: #E8D4D8;"></div>
-                </div>
-                <div class="video-panel" data-feature-panel="3" aria-hidden="true">
-                  <div class="video-placeholder" style="background: #E0E8D4;"></div>
-                </div>
+                <article class="feature-item">
+                  <div class="feature-item-media">
+                    <div class="video-panel" data-feature-panel="1" aria-hidden="false">
+                      <div class="screen-demo" data-screen-demo>
+                        <div class="screen-demo-frame">
+                          <video
+                            class="screen-demo-video"
+                            src="../videos/cherish/custom-alerts.mp4"
+                            width="2880"
+                            height="1800"
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            aria-label="Demo of custom alerts for risky resident movement. Tap to pause or play."
+                          ></video>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="feature-item-text">
+                    <div class="feature-item-text-content">
+                      <h3 class="h3">Warning nurses about risky resident movement</h3>
+                      <p class="body-sm">The original dashboard only alerted nurses about falls that had already happened. We introduced a lower-priority alert type focusing on potential falls.</p>
+                    </div>
+                    <span class="feature-num insight-row-number">02</span>
+                  </div>
+                </article>
+
+                <article class="feature-item">
+                  <div class="feature-item-media">
+                    <div class="video-panel" data-feature-panel="2" aria-hidden="false">
+                      <div class="video-placeholder" style="background: #E8D4D8;"></div>
+                    </div>
+                  </div>
+                  <div class="feature-item-text">
+                    <div class="feature-item-text-content">
+                      <h3 class="h3">Adding patient notes and tags</h3>
+                      <p class="body-sm">Nurses can add notes for clear communication on what care a resident needs. Tags give an at-a-glance look at a patient's fall risk.</p>
+                    </div>
+                    <span class="feature-num insight-row-number">03</span>
+                  </div>
+                </article>
+
+                <article class="feature-item">
+                  <div class="feature-item-media">
+                    <div class="video-panel" data-feature-panel="3" aria-hidden="false">
+                      <div class="video-placeholder" style="background: #E0E8D4;"></div>
+                    </div>
+                  </div>
+                  <div class="feature-item-text">
+                    <div class="feature-item-text-content">
+                      <h3 class="h3">Keeping track of incident response times</h3>
+                      <p class="body-sm">We introduced a timeline that shows exactly when a nurse entered the room after an incident, helping staff verify response times.</p>
+                    </div>
+                    <span class="feature-num insight-row-number">04</span>
+                  </div>
+                </article>
               </div>
 
-              <div class="pagination-dots" aria-label="Feature progress">
-                <span class="dot active" aria-current="step"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-
-              <div class="feature-text" aria-live="polite">
-                <div class="feature-text-content">
-                  <h3 class="h3">Detecting for new types of movements</h3>
-                  <p class="body-sm">The original device only detected whether someone was standing, in bed, or on the ground. But most nursing home residents used mobility aids like walkers.</p>
+              <div class="features-scroll-chrome" aria-hidden="true">
+                <div class="pagination-dots" aria-label="Feature progress">
+                  <span class="dot active" aria-current="step"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
                 </div>
-                <span class="feature-num insight-row-number">01</span>
+
+                <div class="feature-text" aria-live="polite">
+                  <div class="feature-text-content">
+                    <h3 class="h3">Detecting for new types of movements</h3>
+                    <p class="body-sm">The original device only detected whether someone was standing, in bed, or on the ground. But most nursing home residents used mobility aids like walkers.</p>
+                  </div>
+                  <span class="feature-num insight-row-number">01</span>
+                </div>
               </div>
             </div>
           </div>
@@ -330,8 +409,9 @@
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
   </script>
+  <script src="../scripts/steps-card-hover.js"></script>
   <script src="../scripts/nav-scroll.js"></script>
-  <script src="../scripts/hero-video.js"></script>
+  <script src="../scripts/screen-demo-video.js"></script>
   <script src="../scripts/compare-slider.js"></script>
   <script src="../scripts/image-lightbox.js"></script>
   <script src="../scripts/features-scroll.js"></script>

@@ -173,8 +173,8 @@ img {
   cursor: zoom-in;
 }
 
-/* ─── HERO VIDEO ─── */
-.hero-video-block {
+/* ─── SCREEN DEMO (reusable prototype video container) ─── */
+.screen-demo {
   container-type: size;
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -188,10 +188,13 @@ img {
   padding-block: 6%;
   padding-inline: 5%;
   box-sizing: border-box;
+}
+
+.screen-demo--lead {
   margin-bottom: 2rem;
 }
 
-.hero-video-frame {
+.screen-demo-frame {
   border: 1px solid var(--color-border);
   border-radius: 12px;
   overflow: hidden;
@@ -200,16 +203,27 @@ img {
     var(--sds-size-depth-0) 0.76px var(--sds-size-depth-100) var(--sds-size-depth-negative-025) var(--sds-color-black-100);
   line-height: 0;
   max-width: 100%;
+  display: grid;
+  width: min(100cqw, calc(100cqh * 16 / 10));
   transform: scale(1.1);
   transform-origin: center;
 }
 
-.hero-video {
-  display: block;
+.screen-demo-frame::before {
+  content: '';
+  grid-area: 1 / 1;
+  width: 100%;
   aspect-ratio: 16 / 10;
-  width: min(100cqw, calc(100cqh * 16 / 10));
-  height: auto;
-  border-radius: 11px;
+}
+
+.screen-demo-video {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
   cursor: pointer;
 }
 
@@ -374,7 +388,8 @@ body.lightbox-open {
 .bento-grid {
   display: grid;
   grid-template-columns: 1.65fr 1fr;
-  gap: 1.5rem;
+  column-gap: 1.5rem;
+  row-gap: 4rem;
   overflow: visible;
 }
 
@@ -692,10 +707,7 @@ h2 {
   border-radius: 0.5rem;
   background: linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 40%, transparent) 0%, transparent 100%);
   transition: transform 0.3s ease;
-}
-
-.steps-card:hover {
-  transform: translateY(-10px);
+  transform: rotate(var(--steps-card-tilt, 0deg));
 }
 
 .steps-card-number {
@@ -859,57 +871,121 @@ h2 {
 }
 
 /* ─── FEATURES SCROLL ─── */
+.section--features {
+  padding-top: 0;
+}
+
 .features-block {
-  margin-top: 0;
+  margin: 0;
 }
 
-.scroll-driver {
-  height: calc((var(--feature-count, 4) + 1) * 100vh);
+.features-intro {
+  padding-top: 5rem;
+  margin-bottom: 2.5rem;
 }
 
-.features-sticky {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  height: 100vh;
+.features-block--stack .scroll-driver {
+  height: auto;
+}
+
+.features-block--stack .features-sticky {
+  position: static;
+  height: auto;
+  padding-top: 0;
+  background: transparent;
+  gap: 0;
+}
+
+.features-block--stack .features-scroll-chrome {
+  display: none;
+}
+
+.features-block--stack .features-items {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 3.5rem;
+}
+
+.features-block--stack .feature-item {
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
-  background: var(--color-bg);
-  box-sizing: border-box;
 }
 
-.features-sticky .section-label {
-  margin-bottom: 0;
-}
-
-.features-sticky > h2 {
-  margin-bottom: 0;
-}
-
-.features-sticky > p:not(.body-sm) {
-  margin-bottom: 0;
-}
-
-.video-wrap {
+.features-block--stack .feature-item-media {
   position: relative;
   width: 100%;
 }
 
-.video-panel {
+.features-block--stack .video-panel {
+  position: relative;
+  opacity: 1;
+}
+
+.features-block--stack .feature-item-text {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+}
+
+.features-block--scroll .scroll-driver {
+  height: calc((var(--feature-count, 4) + 1) * 100vh);
+}
+
+.features-block--scroll .features-sticky {
+  position: sticky;
+  top: var(--nav-top-height);
+  z-index: 1;
+  height: calc(100vh - var(--nav-top-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  padding-top: 2rem;
+  background: var(--color-bg);
+  box-sizing: border-box;
+}
+
+.features-block--scroll .features-items {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+}
+
+.features-block--scroll .feature-item {
   position: absolute;
   inset: 0;
+}
+
+.features-block--scroll .feature-item-text {
+  display: none;
+}
+
+.features-block--scroll .feature-item-media,
+.features-block--scroll .video-panel {
+  position: absolute;
+  inset: 0;
+}
+
+.features-block--scroll .video-panel {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
-.video-panel.active {
+.features-block--scroll .video-panel.active {
   opacity: 1;
   position: relative;
 }
 
-.video-panel video,
+.features-block--scroll .features-scroll-chrome {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
 .video-placeholder {
   width: 100%;
   display: block;
@@ -932,6 +1008,7 @@ h2 {
   border-radius: 3px;
   background: color-mix(in srgb, var(--color-stroke) 40%, transparent);
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .dot.active {

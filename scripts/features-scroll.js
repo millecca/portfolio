@@ -7,9 +7,9 @@
   const dots = block.querySelectorAll('.pagination-dots .dot');
   const featureText = block.querySelector('.feature-text');
   const featureTextContent = block.querySelector('.feature-text-content');
-  const titleEl = block.querySelector('.h3');
-  const descEl = block.querySelector('.body-sm');
-  const numEl = block.querySelector('.feature-num');
+  const titleEl = block.querySelector('.features-scroll-chrome .h3');
+  const descEl = block.querySelector('.features-scroll-chrome .body-sm');
+  const numEl = block.querySelector('.features-scroll-chrome .feature-num');
 
   const features = [
     {
@@ -35,11 +35,39 @@
   ];
 
   const total = features.length;
+  const MIN_SCROLL_HEIGHT = 760;
+
   block.style.setProperty('--feature-count', total);
 
   let activeIdx = 0;
   let isAnimating = false;
   let pendingIdx = null;
+  let scrollLockIdx = null;
+  let scrollMode = false;
+
+  function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function shouldUseScrollMode() {
+    if (prefersReducedMotion()) return false;
+    return window.innerHeight >= MIN_SCROLL_HEIGHT;
+  }
+
+  function getScrollMetrics() {
+    const rect = driver.getBoundingClientRect();
+    const scrollRange = driver.offsetHeight - window.innerHeight;
+    const segmentSize = scrollRange > 0 ? scrollRange / total : 0;
+    const driverDocTop = window.scrollY + rect.top;
+    const scrolled = rect.top > 0 ? 0 : -rect.top;
+
+    return { rect, scrollRange, segmentSize, driverDocTop, scrolled };
+  }
+
+  function indexFromScroll(scrolled, segmentSize) {
+    if (segmentSize <= 0) return 0;
+    return Math.min(total - 1, Math.max(0, Math.floor(scrolled / segmentSize)));
+  }
 
   function setPanelState(idx) {
     panels.forEach((panel, i) => {
@@ -59,6 +87,13 @@
     });
   }
 
+  function setStackPanelState() {
+    panels.forEach((panel) => {
+      panel.classList.add('active');
+      panel.setAttribute('aria-hidden', 'false');
+    });
+  }
+
   function setTextContent(idx) {
     const feature = features[idx];
     titleEl.textContent = feature.title;
@@ -73,6 +108,8 @@
   }
 
   function lockFeatureTextHeight() {
+    if (!scrollMode || !featureText) return;
+
     const previousIdx = activeIdx;
     let maxHeight = 0;
 
@@ -85,8 +122,13 @@
     featureText.style.height = `${maxHeight}px`;
   }
 
+  function clearFeatureTextHeight() {
+    if (!featureText) return;
+    featureText.style.height = '';
+  }
+
   function activate(idx) {
-    if (idx === activeIdx) return;
+    if (!scrollMode || idx === activeIdx) return;
 
     if (isAnimating) {
       pendingIdx = idx;
@@ -117,23 +159,122 @@
   }
 
   function onScroll() {
-    const rect = driver.getBoundingClientRect();
-    const scrollRange = driver.offsetHeight - window.innerHeight;
+    if (!scrollMode || scrollLockIdx !== null) return;
+
+    const { rect, scrollRange, segmentSize, scrolled } = getScrollMetrics();
 
     if (rect.top > 0 || scrollRange <= 0) {
       activate(0);
       return;
     }
 
-    const scrolled = -rect.top;
-    const segmentSize = scrollRange / total;
-    const idx = Math.min(total - 1, Math.max(0, Math.floor(scrolled / segmentSize)));
-    activate(idx);
+    activate(indexFromScroll(scrolled, segmentSize));
   }
 
-  setPanelState(0);
-  lockFeatureTextHeight();
-  window.addEventListener('resize', lockFeatureTextHeight, { passive: true });
+  function scrollToFeature(idx) {
+    if (!scrollMode) return;
+
+    const { segmentSize, driverDocTop } = getScrollMetrics();
+    if (segmentSize <= 0 || idx === activeIdx) return;
+
+    const isAdjacent = Math.abs(idx - activeIdx) === 1;
+    const targetTop = driverDocTop + idx * segmentSize + 1;
+
+    if (!isAdjacent) {
+      pendingIdx = null;
+      isAnimating = false;
+      featureTextContent.classList.remove('is-transitioning');
+      scrollLockIdx = idx;
+
+      window.scrollTo({ top: targetTop, behavior: 'auto' });
+      activate(idx);
+
+      window.setTimeout(() => {
+        scrollLockIdx = null;
+      }, 320);
+      return;
+    }
+
+    window.scrollTo({ top: targetTop, behavior: 'smooth' });
+  }
+
+  function enableStackMode() {
+    scrollMode = false;
+    pendingIdx = null;
+    isAnimating = false;
+    scrollLockIdx = null;
+    activeIdx = 0;
+
+    block.classList.remove('features-block--scroll');
+    block.classList.add('features-block--stack');
+    featureTextContent.classList.remove('is-transitioning');
+    clearFeatureTextHeight();
+    setStackPanelState();
+
+    const scrollChrome = block.querySelector('.features-scroll-chrome');
+    if (scrollChrome) scrollChrome.setAttribute('aria-hidden', 'true');
+
+    block.querySelectorAll('.feature-item-text').forEach((el) => {
+      el.removeAttribute('aria-hidden');
+    });
+  }
+
+  function enableScrollMode() {
+    scrollMode = true;
+
+    block.classList.remove('features-block--stack');
+    block.classList.add('features-block--scroll');
+
+    const scrollChrome = block.querySelector('.features-scroll-chrome');
+    if (scrollChrome) scrollChrome.setAttribute('aria-hidden', 'false');
+
+    block.querySelectorAll('.feature-item-text').forEach((el) => {
+      el.setAttribute('aria-hidden', 'true');
+    });
+
+    setTextContent(activeIdx);
+    setPanelState(activeIdx);
+    lockFeatureTextHeight();
+    onScroll();
+  }
+
+  function updateMode() {
+    const nextMode = shouldUseScrollMode();
+    if (nextMode === scrollMode) return;
+
+    if (nextMode) {
+      enableScrollMode();
+      return;
+    }
+
+    enableStackMode();
+  }
+
+  dots.forEach((dot, i) => {
+    dot.setAttribute('role', 'button');
+    dot.setAttribute('tabindex', '0');
+    dot.setAttribute('aria-label', `Go to feature ${i + 1}`);
+
+    dot.addEventListener('click', () => scrollToFeature(i));
+    dot.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        scrollToFeature(i);
+      }
+    });
+  });
+
+  updateMode();
+  window.addEventListener('resize', () => {
+    updateMode();
+    lockFeatureTextHeight();
+  }, { passive: true });
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (typeof motionQuery.addEventListener === 'function') {
+    motionQuery.addEventListener('change', updateMode);
+  } else if (typeof motionQuery.addListener === 'function') {
+    motionQuery.addListener(updateMode);
+  }
 })();
