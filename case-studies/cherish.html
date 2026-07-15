@@ -67,9 +67,14 @@
           <div class="meta-item"><dt>Timeline</dt><dd>4 months (Spring 2025)</dd></div>
           <div class="meta-item"><dt>Industry</dt><dd>Healthcare, IOT</dd></div>
         </dl>
-        <br>
       </header>
 
+      <div class="img-block-row">
+        <div class="img-block"><img src="../images/cherish/timeline-graphic.png" alt="Fall timeline" /></div>
+        <div class="img-block"><img src="../images/cherish/resolve-graphic.png" alt="Resolving an alert" /></div>
+        <div class="img-block"><img src="../images/cherish/cards-graphic.png" alt="Various UI elements" /></div>
+      </div>
+      <p class="caption">Various UI from the dashboard.</p>
 
       <!-- Context -->
       <section class="section" id="context">
@@ -77,7 +82,7 @@
         <h2>A fall detector that prioritizes privacy.</h2>
         <p>While most offerings used cameras or wearables, Cherish was building a fall monitor that used AI and radar instead. This new alternative allowed older adults to live safely without feeling like there was something getting in the way.</p>
         <p>Nursing homes were key partners, acting as investors, consumers, and a real-world environment to test the emerging technology.</p>
-        <div class="img-block"><img src="../images/cherish/context2.png" alt="Cherish context image" /></div>
+        <div class="img-block"><img src="../images/cherish/context.png" alt="Cherish context image" /></div>
         <p class="caption">The wall-mounted device feels more like a lamp than a health monitor.</p>
       </section>
 
@@ -126,6 +131,7 @@
       <!-- Research -->
       <section class="section" id="research">
         <p class="section-label">Research</p>
+        <h2>Learning how nurses work, where they work.</h2>
         <p>We visited three different nursing homes to understand their workflows, challenges, and possible barriers to adoption. Numerous interviews, usability tests, and observational sessions helped us understand how nursing homes currently dealt with falling.</p>
 
         <div class="steps-grid">
@@ -133,19 +139,25 @@
             <p class="steps-card-number">01</p>
             <h3 class="steps-card-title">Secondary Research</h3>
             <p class="body-sm">To build foundational context, we reviewed literature on nursing home workflows and looked at common digital platforms used.</p>
-            <div class="steps-card-image" aria-hidden="true"></div>
+            <div class="steps-card-image" aria-hidden="true">
+                <img src="../images/cherish/secondary-research.png" alt=""/>
+            </div>
           </article>
           <article class="steps-card">
             <p class="steps-card-number">02</p>
             <h3 class="steps-card-title">Field Research</h3>
             <p class="body-sm">We visited 3 different care facilities to conduct interviews and observe workflows.</p>
-            <div class="steps-card-image" aria-hidden="true"></div>
+            <div class="steps-card-image" aria-hidden="true">
+              <img src="../images/cherish/field-research.png" alt="" />
+            </div>
           </article>
           <article class="steps-card">
             <p class="steps-card-number">03</p>
             <h3 class="steps-card-title">Data Analysis</h3>
             <p class="body-sm">To organize our findings, we ran an affinity mapping session, revealing 4 key themes.</p>
-            <div class="steps-card-image" aria-hidden="true"></div>
+            <div class="steps-card-image" aria-hidden="true">
+              <img src="../images/cherish/data-analysis.png" alt="" />
+            </div>
           </article>
         </div>
 
@@ -178,140 +190,141 @@
             </article>
           </div>
         </div>
-      </section>
 
-      <!-- Initial Approach -->
-      <section class="section" id="design">
-        <p class="section-label">Initial Approach</p>
-        <h2>Talk a bit about the intention behind this design, what our goals and decision-making process was like.</h2>
-        <p>Our goals when redesigning the dashboard was to make sure nurses could easily identify and respond to incidents. At the same time, we had to make sure the data presented was in a format that supported engineering's AI training.</p>
-        <div class="design-stack">
-          <div class="stack">
-            <div class="card"><img src="../images/cherish/wireframe-1.png" alt="Initial wireframe sketch 1" /></div>
-            <div class="card"><img src="../images/cherish/wireframe-2.png" alt="Initial wireframe sketch 2" /></div>
-            <div class="card"><img src="../images/cherish/wireframe-3.png" alt="Initial wireframe sketch 3" /></div>
+        <div class="research-subsection">
+          <p class="section-label">Identifying Opportunities</p>
+          <p>After synthesizing our research, we translated our findings into a strategic product vision, identifying key opportunities to better align with unmet market needs.</p>
+          <p>We pitched our ideas to company leadership, using low-fidelity wireframes to illustrate how the platform could evolve to support nurses in real-world scenarios. This presentation served to establish a shared vision and align on feasability before high-fidelity design.</p>
+          <div class="design-stack">
+            <div class="stack">
+              <div class="card"><img src="../images/cherish/wireframe-1.png" alt="Initial wireframe sketch 1" /></div>
+              <div class="card"><img src="../images/cherish/wireframe-2.png" alt="Initial wireframe sketch 2" /></div>
+              <div class="card"><img src="../images/cherish/wireframe-3.png" alt="Initial wireframe sketch 3" /></div>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- The Design -->
-      <section class="section section--features" id="the-design">
-        <div class="features-block features-block--stack" data-features-scroll>
+      <section class="section section--features" id="design">
+        <div class="features-block">
           <div class="features-intro">
-            <p class="section-label">The Design</p>
-            <h2>Statement of what we made. A dashboard that..</h2>
-            <p>Replace this placeholder text with the actual content for this section.</p>
+            <p class="section-label">What I designed</p>
+            <h2>A dashboard built for the complexities of nursing home care</h2>
           </div>
 
-          <div class="scroll-driver">
-            <div class="features-sticky">
-              <div class="features-items">
-                <article class="feature-item">
-                  <div class="feature-item-media">
-                    <div class="video-panel active" data-feature-panel="0" aria-hidden="false">
-                      <div class="screen-demo" data-screen-demo>
-                        <div class="screen-demo-frame">
-                          <video
-                            class="screen-demo-video"
-                            src="../videos/cherish/risky-movement.mp4"
-                            width="2880"
-                            height="1800"
-                            muted
-                            loop
-                            playsinline
-                            preload="metadata"
-                            aria-label="Demo of detecting new types of resident movement. Tap to pause or play."
-                          ></video>
-                        </div>
-                      </div>
-                    </div>
+          <div class="features-items">
+            <article class="feature-item">
+              <div class="feature-item-media">
+                <div class="screen-demo" data-screen-demo>
+                  <div class="screen-demo-frame">
+                    <video
+                      class="screen-demo-video"
+                      src="../videos/cherish/risky-movement.mp4"
+                      width="2880"
+                      height="1800"
+                      muted
+                      loop
+                      playsinline
+                      preload="metadata"
+                      aria-label="Demo of detecting new types of resident movement. Tap to pause or play."
+                    ></video>
                   </div>
-                  <div class="feature-item-text">
-                    <div class="feature-item-text-content">
-                      <h3 class="h3">Detecting for new types of movements</h3>
-                      <p class="body-sm">The original device only detected whether someone was standing, in bed, or on the ground. But most nursing home residents used mobility aids like walkers.</p>
-                    </div>
-                    <span class="feature-num insight-row-number">01</span>
-                  </div>
-                </article>
-
-                <article class="feature-item">
-                  <div class="feature-item-media">
-                    <div class="video-panel" data-feature-panel="1" aria-hidden="false">
-                      <div class="screen-demo" data-screen-demo>
-                        <div class="screen-demo-frame">
-                          <video
-                            class="screen-demo-video"
-                            src="../videos/cherish/custom-alerts.mp4"
-                            width="2880"
-                            height="1800"
-                            muted
-                            loop
-                            playsinline
-                            preload="metadata"
-                            aria-label="Demo of custom alerts for risky resident movement. Tap to pause or play."
-                          ></video>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="feature-item-text">
-                    <div class="feature-item-text-content">
-                      <h3 class="h3">Warning nurses about risky resident movement</h3>
-                      <p class="body-sm">The original dashboard only alerted nurses about falls that had already happened. We introduced a lower-priority alert type focusing on potential falls.</p>
-                    </div>
-                    <span class="feature-num insight-row-number">02</span>
-                  </div>
-                </article>
-
-                <article class="feature-item">
-                  <div class="feature-item-media">
-                    <div class="video-panel" data-feature-panel="2" aria-hidden="false">
-                      <div class="video-placeholder" style="background: #E8D4D8;"></div>
-                    </div>
-                  </div>
-                  <div class="feature-item-text">
-                    <div class="feature-item-text-content">
-                      <h3 class="h3">Adding patient notes and tags</h3>
-                      <p class="body-sm">Nurses can add notes for clear communication on what care a resident needs. Tags give an at-a-glance look at a patient's fall risk.</p>
-                    </div>
-                    <span class="feature-num insight-row-number">03</span>
-                  </div>
-                </article>
-
-                <article class="feature-item">
-                  <div class="feature-item-media">
-                    <div class="video-panel" data-feature-panel="3" aria-hidden="false">
-                      <div class="video-placeholder" style="background: #E0E8D4;"></div>
-                    </div>
-                  </div>
-                  <div class="feature-item-text">
-                    <div class="feature-item-text-content">
-                      <h3 class="h3">Keeping track of incident response times</h3>
-                      <p class="body-sm">We introduced a timeline that shows exactly when a nurse entered the room after an incident, helping staff verify response times.</p>
-                    </div>
-                    <span class="feature-num insight-row-number">04</span>
-                  </div>
-                </article>
-              </div>
-
-              <div class="features-scroll-chrome" aria-hidden="true">
-                <div class="pagination-dots" aria-label="Feature progress">
-                  <span class="dot active" aria-current="step"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                </div>
-
-                <div class="feature-text" aria-live="polite">
-                  <div class="feature-text-content">
-                    <h3 class="h3">Detecting for new types of movements</h3>
-                    <p class="body-sm">The original device only detected whether someone was standing, in bed, or on the ground. But most nursing home residents used mobility aids like walkers.</p>
-                  </div>
-                  <span class="feature-num insight-row-number">01</span>
                 </div>
               </div>
-            </div>
+              <p class="caption">Risky movement brings a room to the top of the list, but doesn’t demand as much urgency as an active fall.</p>
+              <div class="feature-item-text">
+                <div class="feature-item-text-content">
+                  <h3 class="h3">Catching risky movement before it becomes a fall</h3>
+                  <p class="body-sm">The original system only tracked when a resident was standing, sitting, or on the ground, and only alerted nurses after a fall happened. But most residents used mobility aids, so we added new body positions and a lower-priority alert for possibly dangerous movement.</p>
+                </div>
+                <span class="feature-num insight-row-number">01</span>
+              </div>
+            </article>
+
+            <article class="feature-item">
+              <div class="feature-item-media">
+                <div class="screen-demo" data-screen-demo>
+                  <div class="screen-demo-frame">
+                    <video
+                      class="screen-demo-video"
+                      src="../videos/cherish/custom-alerts.mp4"
+                      width="2880"
+                      height="1800"
+                      muted
+                      loop
+                      playsinline
+                      preload="metadata"
+                      aria-label="Demo of custom alerts for risky resident movement. Tap to pause or play."
+                    ></video>
+                  </div>
+                </div>
+              </div>
+              <p class="caption">Only nurses with permission to edit a resident’s settings may do so, and all changes are timestamped.</p>
+              <div class="feature-item-text">
+                <div class="feature-item-text-content">
+                  <h3 class="h3">Custom alert settings provide more individualized care</h3>
+                  <p class="body-sm">Risky movement for some residents is completely normal for others. To avoid excessive alerts, nurses can control what they want to be aware of.</p>
+                </div>
+                <span class="feature-num insight-row-number">02</span>
+              </div>
+            </article>
+
+            <article class="feature-item">
+              <div class="feature-item-media">
+                <div class="screen-demo" data-screen-demo>
+                  <div class="screen-demo-frame">
+                    <video
+                      class="screen-demo-video"
+                      src="../videos/cherish/add-note.mp4"
+                      width="2880"
+                      height="1800"
+                      muted
+                      loop
+                      playsinline
+                      preload="metadata"
+                      aria-label="Demo of adding patient notes and tags. Tap to pause or play."
+                    ></video>
+                  </div>
+                </div>
+              </div>
+              <p class="caption">Notes and tags help shift workers quickly understand each resident's care needs.</p>
+              <div class="feature-item-text">
+                <div class="feature-item-text-content">
+                  <h3 class="h3">Notes and tags keep care consistent with varied staff</h3>
+                  <p class="body-sm">Staffing changes frequently and a patient's care needs can get lost in the various communication channels nurses use. A patient's detail page keeps it all in one place.</p>
+                </div>
+                <span class="feature-num insight-row-number">03</span>
+              </div>
+            </article>
+
+            <article class="feature-item">
+              <div class="feature-item-media">
+                <div class="screen-demo" data-screen-demo>
+                  <div class="screen-demo-frame">
+                    <video
+                      class="screen-demo-video"
+                      src="../videos/cherish/timeline.mp4"
+                      width="2880"
+                      height="1800"
+                      muted
+                      loop
+                      playsinline
+                      preload="metadata"
+                      aria-label="Demo of incident response timeline. Tap to pause or play."
+                    ></video>
+                  </div>
+                </div>
+              </div>
+              <p class="caption">The timeline records exactly when staff entered the room after an incident.</p>
+              <div class="feature-item-text">
+                <div class="feature-item-text-content">
+                  <h3 class="h3">Keeping track of incident response times</h3>
+                  <p class="body-sm">We introduced a timeline that shows exactly when a nurse entered the room after an incident, helping staff verify response times.</p>
+                </div>
+                <span class="feature-num insight-row-number">04</span>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -319,20 +332,16 @@
       <!-- Outcome -->
       <section class="section" id="outcome">
         <p class="section-label">Outcome</p>
-        <h2>Your section heading.</h2>
-        <p>Lead with measurable results if you have them.</p>
+        <h2>Lasting impact beyond the screen</h2>
+        <p>Like any startup, Cherish's priorities were rapidly evolving. After this project, the company shifted its focus towards in-home devices, pausing development of the assisted living platform. Nonetheless, our impact was still felt.</p>
         <div class="content-blocks">
           <article class="content-block">
-            <h3 class="content-block-title">Insights shaped the entire product experience, not just screens.</h3>
-            <p class="content-block-body">Replace this placeholder text with the actual content for this outcome.</p>
+            <h3 class="content-block-title">Redirected AI training efforts</h3>
+            <p class="content-block-body">While the AI team had been training their models to detect falls from a person sitting or standing, our research shifted their focus to mobility aids like wheelchairs, as well as warning signs before a fall.</p>
           </article>
           <article class="content-block">
-            <h3 class="content-block-title">Outcome heading two</h3>
-            <p class="content-block-body">Replace this placeholder text with the actual content for this outcome.</p>
-          </article>
-          <article class="content-block">
-            <h3 class="content-block-title">Outcome heading three</h3>
-            <p class="content-block-body">Replace this placeholder text with the actual content for this outcome.</p>
+            <h3 class="content-block-title">Proved the value of research in an environment where speed is everything</h3>
+            <p class="content-block-body">As the company's first UX research initiative, this project encouraged lightweight usability testing and early validation in subsequent design work.</p>
           </article>
         </div>
       </section>
@@ -375,7 +384,6 @@
       problem: '#problem',
       research: '#research',
       design: '#design',
-      'the-design': '#design',
       outcome: '#outcome',
     };
 
@@ -385,7 +393,6 @@
       'problem',
       'research',
       'design',
-      'the-design',
       'outcome',
     ];
 
@@ -414,7 +421,6 @@
   <script src="../scripts/screen-demo-video.js"></script>
   <script src="../scripts/compare-slider.js"></script>
   <script src="../scripts/image-lightbox.js"></script>
-  <script src="../scripts/features-scroll.js"></script>
 
 </body>
 </html>
