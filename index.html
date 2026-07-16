@@ -14,13 +14,46 @@
     <ul class="top-nav-links">
       <li><a href="index.html">Work</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="mailto:lang.delapa@gmail.com" class="top-nav-cta">Contact</a></li>
+      <li class="top-nav-contact">
+        <button type="button" class="top-nav-contact-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="contact-menu">
+          Contact
+          <img class="top-nav-contact-chevron" src="images/icons/contact/chevron-up.svg" alt="" width="16" height="16" />
+        </button>
+        <div id="contact-menu" class="top-nav-contact-menu" role="menu" aria-label="Contact options">
+          <a role="menuitem" href="mailto:lang.delapa@gmail.com" class="top-nav-contact-item">
+            <span class="top-nav-contact-icon top-nav-contact-icon--mail">
+              <img src="images/icons/contact/mail.svg" alt="" width="48" height="48" />
+            </span>
+            <span class="top-nav-contact-text">
+              <span class="top-nav-contact-label">Email</span>
+              <span class="top-nav-contact-desc">Chat with me</span>
+            </span>
+          </a>
+          <a role="menuitem" href="https://www.linkedin.com/in/langdelapa?_l=en_US" class="top-nav-contact-item" target="_blank" rel="noopener noreferrer">
+            <span class="top-nav-contact-icon top-nav-contact-icon--boxed top-nav-contact-icon--linkedin">
+              <img src="images/icons/contact/linkedin.svg" alt="" width="20" height="20" />
+            </span>
+            <span class="top-nav-contact-text">
+              <span class="top-nav-contact-label">LinkedIn</span>
+              <span class="top-nav-contact-desc">Let's connect</span>
+            </span>
+          </a>
+          <a role="menuitem" href="#" class="top-nav-contact-item" target="_blank" rel="noopener noreferrer">
+            <span class="top-nav-contact-icon top-nav-contact-icon--boxed top-nav-contact-icon--resume">
+              <img src="images/icons/contact/resume.svg" alt="" width="24" height="24" />
+            </span>
+            <span class="top-nav-contact-text">
+              <span class="top-nav-contact-label">Resume</span>
+              <span class="top-nav-contact-desc">Download PDF</span>
+            </span>
+          </a>
+        </div>
+      </li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-eyebrow">Product Designer with 3+ years of experience</p>
     <h1>Where <span class="hero-emphasis">smart thinking</span> meets <em>thoughtful execution.</em></h1>
     <p><span class="hero-name">Lang Delapa</span> crafts meaningful experiences that solve complex problems with simplicity.</p>
   </section>
@@ -44,50 +77,65 @@
         </div>
       </a>
 
-      <a href="case-studies/project-two.html" class="bento-card">
-        <div class="bento-card-media"></div>
-        <span class="bento-card-cta">View case study</span>
+      <a href="https://theloophole.com/" class="bento-card" target="_blank" rel="noopener noreferrer">
+        <div class="bento-card-media"><img src="images/home/loophole-hero.png" /></div>
+        <span class="bento-card-cta">See product</span>
+        <div class="bento-card-body">
+          <h2 class="bento-card-title">An LSAT study platform that stands out from the crowd</h2>
+          <p class="bento-card-desc">I worked with a founder to turn her bestselling LSAT prep book into an online platform packed with personality.</p>
+          <ul class="bento-card-tags" aria-label="Project tags">
+            <li>Edtech</li>
+            <li>Web</li>
+            <li>0-1</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="case-studies/project-three.html" class="bento-card">
+        <div class="bento-card-media"><img src="images/home/MBTA-hero.png" alt="MBTA commuter rail project hero image" /></div>
+        <span class="bento-card-cta">Project coming soon</span>
         <div class="bento-card-body">
           <h2 class="bento-card-title">Improving the experience of taking the commuter rail</h2>
-          <p class="bento-card-desc">Description goes here</p>
+          <p class="bento-card-desc">A research and design project investigating why people are so dissatisfied with Massachusetts commuter rail.</p>
           <ul class="bento-card-tags" aria-label="Project tags">
-            <li>Transit</li>
+            <li>Personal Project</li>
             <li>Mobile</li>
             <li>Research</li>
           </ul>
         </div>
       </a>
 
-      <a href="case-studies/project-three.html" class="bento-card">
-        <div class="bento-card-media"></div>
-        <span class="bento-card-cta">View case study</span>
-        <div class="bento-card-body">
-          <h2 class="bento-card-title">An LSAT study platform that stands out from the crowd</h2>
-          <p class="bento-card-desc">Description goes here</p>
-          <ul class="bento-card-tags" aria-label="Project tags">
-            <li>EdTech</li>
-            <li>Web</li>
-            <li>Startup</li>
-          </ul>
-        </div>
-      </a>
-
       <a href="case-studies/project-four.html" class="bento-card">
-        <div class="bento-card-media"></div>
-        <span class="bento-card-cta">View case study</span>
+        <div class="bento-card-media"><img src="images/home/boothhub-hero.png"></div>
+        <span class="bento-card-cta">Project coming soon</span>
         <div class="bento-card-body">
-          <h2 class="bento-card-title">An LSAT study platform that stands out from the crowd</h2>
-          <p class="bento-card-desc">Description goes here</p>
+          <h2 class="bento-card-title">A management platform for farmer's markets</h2>
+          <p class="bento-card-desc">Connecting market managers with vendors.</p>
           <ul class="bento-card-tags" aria-label="Project tags">
-            <li>EdTech</li>
-            <li>Web</li>
-            <li>Startup</li>
+            <li>B2B</li>
+            <li>Webapp</li>
           </ul>
         </div>
       </a>
 
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-cta">
+        <p class="footer-heading">Thanks for stopping by.</p>
+        <p class="footer-email">Say hello at <a href="mailto:lang.delapa@gmail.com">lang.delapa@gmail.com</a></p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="https://www.linkedin.com/in/langdelapa?_l=en_US" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="#">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 
   <script src="scripts/nav-scroll.js"></script>
   <script src="scripts/bento-cursor.js"></script>
