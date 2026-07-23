@@ -1249,18 +1249,19 @@ h2 {
   background: var(--color-bg);
   border: 1px solid var(--color-stroke);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.compare-slider-handle-thumb::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0.625rem;
-  height: 0.625rem;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: var(--color-text);
+.compare-slider-handle-thumb img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .compare-slider-label {
