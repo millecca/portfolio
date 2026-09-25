@@ -1,4 +1,26 @@
-@import url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css');
+@font-face {
+  font-family: 'Geist Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geist Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geist Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-SemiBold.woff2') format('woff2');
+}
 
 @font-face {
   font-family: 'Source Serif 4';
@@ -580,28 +602,6 @@ body.lightbox-open {
   padding: 2rem 2rem 8rem;
 }
 
-.work-label {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  font-style: italic;
-  font-weight: 400;
-  font-synthesis: none;
-  font-variation-settings: var(--serif-variation-regular);
-  letter-spacing: -0.02em;
-  color: var(--color-text);
-  margin-bottom: 2rem;
-}
-
-.work-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--color-stroke);
-}
-
 .bento-grid {
   display: grid;
   grid-template-columns: 1.65fr 1fr;
@@ -793,16 +793,6 @@ body.lightbox-open {
   margin-bottom: 1.25rem;
 }
 
-.case-study-tag {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-label-to-title);
-}
-
 h1 {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 1.75rem + 1.25vw, 2.5rem);
@@ -880,11 +870,14 @@ h2 {
   margin: 2rem 0;
 }
 
-.content-block {
-  padding: 1.5rem 1.5rem .625rem;
-  border-radius: 0.75rem;
+.content-card {
   border: 1px solid var(--color-stroke);
   background: linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 40%, transparent) 0%, transparent 100%);
+}
+
+.content-card--block {
+  padding: 1.5rem 1.5rem .625rem;
+  border-radius: 0.75rem;
 }
 
 .content-block-title {
@@ -916,13 +909,11 @@ h2 {
   margin: 2rem 0;
 }
 
-.steps-card {
+.content-card--steps {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  border: 1px solid var(--color-stroke);
   border-radius: 0.5rem;
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 40%, transparent) 0%, transparent 100%);
   transition: transform 0.3s ease;
   transform: rotate(var(--steps-card-tilt, 0deg));
 }
@@ -968,96 +959,68 @@ h2 {
 
 /* ─── DESIGN STACK ─── */
 /* Transforms read right-to-left: final translate = spread position, rotate = tilt, first translate = center anchor */
-.design-stack {
-  position: relative; /* positioning context for .stack and .card */
-  width: 100%; /* full content width */
-  height: 400px; /* stage height — increase if spread cards get clipped */
-  margin: 2rem 0; /* vertical spacing from body text above/below */
-  overflow: visible; /* don't clip cards when they spread out on hover */
+/* ─── SPREAD STACK (shared skeleton) ─── */
+.spread-stack {
+  position: relative;
+  width: 100%;
+  overflow: visible;
 }
 
-.design-stack .stack {
-  position: relative; /* anchor point for absolutely positioned cards */
-  width: 100%; /* fills .design-stack */
-  height: 100%; /* fills .design-stack */
+.spread-stack__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.design-stack .card {
-  position: absolute; /* cards stack on top of each other at the center */
-  width: 406px; /* card width — scaled 1.5% from 400px */
-  height: 264px; /* card height — scaled 1.5% from 260px */
-  border-radius: 12px; /* rounded corners on each card */
-  border: 0.5px solid color-mix(in srgb, var(--color-stroke) 50%, transparent); /* subtle half-opacity border */
-  box-shadow: 0 0 2.282px 0 rgba(0, 0, 0, 0.08), 0 2.282px 6.846px 0 rgba(0, 0, 0, 0.10), 0 9.431px 21.691px 3.537px rgba(0, 0, 0, 0.05), 0 11.788px 8.936px -9.431px rgba(0, 0, 0, 0.03); /* layered drop shadow */
-  overflow: hidden; /* clip wireframe image to card radius */
-  top: 50%; /* vertical center of .stack */
-  left: 50%; /* horizontal center of .stack */
-  transform-origin: center center; /* rotate around the card's own center */
-  transition: transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1); /* 0.45s = speed; cubic-bezier overshoots for physical feel */
+.spread-stack__item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  transition: transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
 }
 
-.design-stack .card img {
-  width: 100%; /* fill card width */
-  height: 100%; /* fill card height */
-  object-fit: cover; /* crop wireframe to fill card */
-  display: block; /* remove inline gap below image */
+.spread-stack__item--left  { transition-delay: 0.08s; }
+.spread-stack__item--front { transition-delay: 0.04s; }
+.spread-stack__item--right { transition-delay: 0s; }
+
+/* ─── --horizontal (cherish wireframes): unframed chrome + straighten-on-hover ─── */
+.spread-stack--horizontal {
+  height: 400px;
+  margin: 2rem 0;
 }
 
-/* Card 1 — bottom of pile, spreads LEFT on hover */
-.design-stack .card:nth-child(1) {
-  transform:
-    translate(-50%, -50%) /* center card on the anchor point */
-    rotate(-6deg)           /* resting tilt — straightens to 0deg on hover */
-    translate(-8px, 4px);  /* resting offset — small nudge left (-8px) and down (4px) */
-  transition-delay: 0.08s; /* trails in last when hover ends */
-  z-index: 1; /* sits behind cards 2 and 3 */
+.spread-stack--horizontal .spread-stack__item {
+  width: 406px;
+  height: 264px;
+  border-radius: 12px;
+  border: 0.5px solid color-mix(in srgb, var(--color-stroke) 50%, transparent);
+  box-shadow: 0 0 2.282px 0 rgba(0, 0, 0, 0.08), 0 2.282px 6.846px 0 rgba(0, 0, 0, 0.10), 0 9.431px 21.691px 3.537px rgba(0, 0, 0, 0.05), 0 11.788px 8.936px -9.431px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
 }
 
-/* Card 2 — middle of pile, stays centered on hover */
-.design-stack .card:nth-child(2) {
-  transform:
-    translate(-50%, -50%) /* center card on the anchor point */
-    rotate(-2deg)           /* resting tilt — straightens to 0deg on hover */
-    translate(-2px, 2px);  /* resting offset — tiny nudge left and down */
-  transition-delay: 0.04s; /* middle of the stagger sequence */
-  z-index: 2; /* sits above card 1, below card 3 */
+.spread-stack--horizontal .spread-stack__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* Card 3 — top of pile, spreads RIGHT on hover */
-.design-stack .card:nth-child(3) {
-  transform:
-    translate(-50%, -50%) /* center card on the anchor point */
-    rotate(4deg)            /* resting tilt — straightens to 0deg on hover */
-    translate(6px, -2px);  /* resting offset — small nudge right (6px) and up (-2px) */
-  transition-delay: 0s; /* leads in first when hover ends */
-  z-index: 3; /* sits on top of the pile */
-}
+.spread-stack--horizontal .spread-stack__item--left  { z-index: 1; transform: translate(-50%, -50%) rotate(-6deg) translate(-8px, 4px); }
+.spread-stack--horizontal .spread-stack__item--front { z-index: 2; transform: translate(-50%, -50%) rotate(-2deg) translate(-2px, 2px); }
+.spread-stack--horizontal .spread-stack__item--right { z-index: 3; transform: translate(-50%, -50%) rotate(4deg) translate(6px, -2px); }
 
-/* HOVER — Card 1 slides left */
-.design-stack .stack:hover .card:nth-child(1) {
-  transform:
-    translate(-50%, -50%)    /* center card on the anchor point */
-    rotate(-2deg)              /* straighten — no tilt when spread */
-    translate(-183px, 0);     /* SPREAD LEFT: scaled 1.5% from -180px */
-  transition-delay: 0s; /* leads out first on hover */
+.spread-stack--horizontal .spread-stack__inner:hover .spread-stack__item--left {
+  transform: translate(-50%, -50%) rotate(-2deg) translate(-183px, 0);
+  transition-delay: 0s;
 }
-
-/* HOVER — Card 2 stays in the middle */
-.design-stack .stack:hover .card:nth-child(2) {
-  transform:
-    translate(-50%, -50%) /* center card on the anchor point */
-    rotate(0deg)           /* straighten — no tilt when spread */
-    translate(0, 0);       /* stays centered */
-  transition-delay: 0.04s; /* middle of the stagger sequence */
+.spread-stack--horizontal .spread-stack__inner:hover .spread-stack__item--front {
+  transform: translate(-50%, -50%) rotate(0deg) translate(0, 0);
+  transition-delay: 0.04s;
 }
-
-/* HOVER — Card 3 slides right */
-.design-stack .stack:hover .card:nth-child(3) {
-  transform:
-    translate(-50%, -50%)   /* center card on the anchor point */
-    rotate(2deg)             /* straighten — no tilt when spread */
-    translate(183px, 0);     /* SPREAD RIGHT: scaled 1.5% from 180px */
-  transition-delay: 0.08s; /* trails out last on hover */
+.spread-stack--horizontal .spread-stack__inner:hover .spread-stack__item--right {
+  transform: translate(-50%, -50%) rotate(2deg) translate(183px, 0);
+  transition-delay: 0.08s;
 }
 
 /* ─── h3 + body-sm ─── */
@@ -1118,11 +1081,14 @@ h2 {
   width: 100%;
 }
 
-.feature-item-text {
+.numbered-row {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: end;
   gap: 2rem;
+}
+
+.numbered-row--feature {
   padding-top: .25rem;
 }
 
@@ -1144,16 +1110,11 @@ h2 {
   margin-top: 2rem;
 }
 
-.insight-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: 2rem;
+.numbered-row--divider {
   padding: 2rem 0;
   border-top: 1px solid var(--color-stroke);
 }
-
-.insight-row:last-child {
+.numbered-row--divider:last-child {
   border-bottom: 1px solid var(--color-stroke);
 }
 
@@ -1462,28 +1423,8 @@ h2 {
   color: var(--color-text);
 }
 
-.about-photo-stack {
-  position: relative;
-  width: 100%;
-  height: 26.6rem;
-  overflow: visible;
-}
-
-.about-photo-stack-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.about-photo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: center center;
-  transition: transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
-}
-
-.about-photo-frame {
+/* ─── --framed (about photos): polaroid chrome ─── */
+.spread-stack__frame {
   background: #FFFEFB;
   border: 1px solid var(--color-stroke);
   border-radius: 2px;
@@ -1493,7 +1434,7 @@ h2 {
     0 2px 32px rgba(48, 32, 25, 0.03);
 }
 
-.about-photo-image {
+.spread-stack__image {
   display: block;
   width: 14.844rem;
   height: 17.813rem;
@@ -1502,55 +1443,29 @@ h2 {
   object-position: center;
 }
 
-.about-photo--left {
-  z-index: 1;
-  transform:
-    translate(-50%, -50%)
-    rotate(-6deg)
-    translate(-1.96rem, -2.44rem);
-  transition-delay: 0.08s;
+/* ─── --diagonal (about photos): diagonal translate + constant-tilt hover ─── */
+.spread-stack--diagonal {
+  height: 26.6rem;
 }
 
-.about-photo--right {
-  z-index: 2;
-  transform:
-    translate(-50%, -50%)
-    rotate(6deg)
-    translate(2.73rem, -1.01rem);
-  transition-delay: 0s;
-}
-
-.about-photo--front {
+.spread-stack--diagonal .spread-stack__item--left  { z-index: 1; transform: translate(-50%, -50%) rotate(-6deg) translate(-1.96rem, -2.44rem); }
+.spread-stack--diagonal .spread-stack__item--right { z-index: 2; transform: translate(-50%, -50%) rotate(6deg) translate(2.73rem, -1.01rem); }
+.spread-stack--diagonal .spread-stack__item--front {
   z-index: 3;
-  transform:
-    translate(-50%, -50%)
-    rotate(0deg)
-    translate(0, 0);
-  transition-delay: 0.04s;
+  transform: translate(-50%, -50%) rotate(0deg) translate(0, 0);
   cursor: pointer;
 }
 
-.about-photo-stack-inner:has(.about-photo--front:hover) .about-photo--left {
-  transform:
-    translate(-50%, -50%)
-    rotate(-6deg)
-    translate(-10.925rem, -4.75rem);
+.spread-stack--diagonal .spread-stack__inner:has(.spread-stack__item--front:hover) .spread-stack__item--left {
+  transform: translate(-50%, -50%) rotate(-6deg) translate(-10.925rem, -4.75rem);
   transition-delay: 0s;
 }
-
-.about-photo-stack-inner:has(.about-photo--front:hover) .about-photo--right {
-  transform:
-    translate(-50%, -50%)
-    rotate(6deg)
-    translate(11.4rem, 6.65rem);
+.spread-stack--diagonal .spread-stack__inner:has(.spread-stack__item--front:hover) .spread-stack__item--right {
+  transform: translate(-50%, -50%) rotate(6deg) translate(11.4rem, 6.65rem);
   transition-delay: 0.08s;
 }
-
-.about-photo-stack-inner:has(.about-photo--front:hover) .about-photo--front {
-  transform:
-    translate(-50%, -50%)
-    rotate(0deg)
-    translate(0, 0);
+.spread-stack--diagonal .spread-stack__inner:has(.spread-stack__item--front:hover) .spread-stack__item--front {
+  transform: translate(-50%, -50%) rotate(0deg) translate(0, 0);
   transition-delay: 0.04s;
 }
 
@@ -1572,7 +1487,7 @@ h2 {
   font-variation-settings: var(--serif-variation-regular);
   letter-spacing: -0.02em;
   color: var(--color-text);
-  margin-bottom: 3.75rem;
+  margin-bottom: 3.5rem;
 }
 
 .about-section-label::after {
@@ -1744,7 +1659,7 @@ h2 {
   .bento-card-tags { justify-content: flex-start; }
   .steps-grid { grid-template-columns: 1fr; }
   .img-block-row { grid-template-columns: 1fr; }
-  .steps-card {
+  .content-card--steps {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 38%);
     grid-template-rows: auto auto 1fr;
@@ -1768,10 +1683,9 @@ h2 {
     margin-top: 0;
     align-self: end;
   }
-  .insight-row { grid-template-columns: 1fr; }
+  .numbered-row--divider { grid-template-columns: 1fr; }
   .insight-row-number { display: none; }
-  .feature-text { grid-template-columns: 1fr; }
-  .feature-num { display: none; }
+  .numbered-row--feature { grid-template-columns: 1fr; }
   .hero { padding: 3rem 1.5rem 2rem; }
   .work-section { padding: 1.5rem 1.5rem 5rem; }
   .top-nav { padding: 0 1rem; }
@@ -1791,29 +1705,23 @@ h2 {
     max-width: none;
   }
 
-  .about-photo-stack {
+  .spread-stack--diagonal {
     height: 20rem;
     margin: 0 auto;
     max-width: 22rem;
   }
 
-  .about-photo-image {
+  .spread-stack__image {
     width: 11.875rem;
     height: 14.25rem;
   }
 
-  .about-photo-stack-inner:has(.about-photo--front:hover) .about-photo--left {
-    transform:
-      translate(-50%, -50%)
-      rotate(-6deg)
-      translate(-6.65rem, -3.1rem);
+  .spread-stack--diagonal .spread-stack__inner:has(.spread-stack__item--front:hover) .spread-stack__item--left {
+    transform: translate(-50%, -50%) rotate(-6deg) translate(-6.65rem, -3.1rem);
   }
 
-  .about-photo-stack-inner:has(.about-photo--front:hover) .about-photo--right {
-    transform:
-      translate(-50%, -50%)
-      rotate(6deg)
-      translate(7.125rem, 4.275rem);
+  .spread-stack--diagonal .spread-stack__inner:has(.spread-stack__item--front:hover) .spread-stack__item--right {
+    transform: translate(-50%, -50%) rotate(6deg) translate(7.125rem, 4.275rem);
   }
 
   .footer {

@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Case Study — Your Name</title>
+  <title>Case Study for Fall Monitor System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles/global.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -92,7 +93,7 @@
         </div>
       </div>
       <header class="case-study-header" id="overview">
-        <p class="case-study-tag">Cherish | Fall Monitoring System
+        <p class="section-label">Cherish | Fall Monitoring System
         </p>
         <h1>Helping nursing homes staff detect and respond to falls</h1>
         <p>I worked with an early-stage startup to design a fall monitoring platform, using design research to ensure product-market fit in assisted living care facilities.</p>
@@ -171,7 +172,7 @@
         <p>We visited three different nursing homes to understand their workflows, challenges, and possible barriers to adoption. Numerous interviews, usability tests, and observational sessions helped us understand how nursing homes currently dealt with falling.</p>
 
         <div class="steps-grid">
-          <article class="steps-card">
+          <article class="content-card content-card--steps">
             <p class="steps-card-number">01</p>
             <h3 class="steps-card-title">Secondary Research</h3>
             <p class="body-sm">To build foundational context, we reviewed literature on nursing home workflows and looked at common digital platforms used.</p>
@@ -179,7 +180,7 @@
                 <img src="../images/cherish/secondary-research.png" alt=""/>
             </div>
           </article>
-          <article class="steps-card">
+          <article class="content-card content-card--steps">
             <p class="steps-card-number">02</p>
             <h3 class="steps-card-title">Field Research</h3>
             <p class="body-sm">We visited 3 different care facilities to conduct interviews and observe workflows.</p>
@@ -187,7 +188,7 @@
               <img src="../images/cherish/field-research.png" alt="" />
             </div>
           </article>
-          <article class="steps-card">
+          <article class="content-card content-card--steps">
             <p class="steps-card-number">03</p>
             <h3 class="steps-card-title">Data Analysis</h3>
             <p class="body-sm">To organize our findings, we ran an affinity mapping session, revealing 4 key themes.</p>
@@ -203,21 +204,21 @@
           <p>Across interviews and site visits, three consistent themes emerged about how nurses think about fall risk, staffing, and accountability.</p>
 
           <div class="insight-list">
-            <article class="insight-row">
+            <article class="numbered-row numbered-row--divider">
               <div class="insight-row-content">
                 <h3 class="h3">Residents want to move around independently, but <em>movement creates risk.</em></h3>
                 <p class="body-sm">Simply getting out of bed or into a wheelchair can cause falls. Nurses need to be aware of movement without noise from constant alerts.</p>
               </div>
               <span class="insight-row-number" aria-hidden="true">01</span>
             </article>
-            <article class="insight-row">
+            <article class="numbered-row numbered-row--divider">
               <div class="insight-row-content">
                 <h3 class="h3">Staffing gaps mean nurses often <em>lack context</em> on who they're caring for.</h3>
                 <p class="body-sm">In a high-turnover, shift-based environment, up-to-date knowledge of each resident's fall risk can't live in someone's head.</p>
               </div>
               <span class="insight-row-number" aria-hidden="true">02</span>
             </article>
-            <article class="insight-row">
+            <article class="numbered-row numbered-row--divider">
               <div class="insight-row-content">
                 <h3 class="h3">Fall monitoring is both a <em>liability</em> and a <em>shield.</em></h3>
                 <p class="body-sm">Nurses fear data being used against them in court, but that same data can prove they responded fast and did their job.</p>
@@ -231,11 +232,11 @@
           <p class="section-label">Identifying Opportunities</p>
           <p>After synthesizing our research, we translated our findings into a strategic product vision, identifying key opportunities to better align with unmet market needs.</p>
           <p>We pitched our ideas to company leadership, using low-fidelity wireframes to illustrate how the platform could evolve to support nurses in real-world scenarios. This presentation served to establish a shared vision and align on feasability before high-fidelity design.</p>
-          <div class="design-stack">
-            <div class="stack">
-              <div class="card"><img src="../images/cherish/wireframe-1.png" alt="Initial wireframe sketch 1" /></div>
-              <div class="card"><img src="../images/cherish/wireframe-2.png" alt="Initial wireframe sketch 2" /></div>
-              <div class="card"><img src="../images/cherish/wireframe-3.png" alt="Initial wireframe sketch 3" /></div>
+          <div class="spread-stack spread-stack--horizontal">
+            <div class="spread-stack__inner">
+              <div class="spread-stack__item spread-stack__item--left"><img src="../images/cherish/wireframe-1.png" alt="Initial wireframe sketch 1" /></div>
+              <div class="spread-stack__item spread-stack__item--front"><img src="../images/cherish/wireframe-2.png" alt="Initial wireframe sketch 2" /></div>
+              <div class="spread-stack__item spread-stack__item--right"><img src="../images/cherish/wireframe-3.png" alt="Initial wireframe sketch 3" /></div>
             </div>
           </div>
         </div>
@@ -269,7 +270,7 @@
                 </div>
               </div>
               <p class="caption">Risky movement brings a room to the top of the list, but doesn’t demand as much urgency as an active fall.</p>
-              <div class="feature-item-text">
+              <div class="numbered-row numbered-row--feature">
                 <div class="feature-item-text-content">
                   <h3 class="h3">Catching risky movement before it becomes a fall</h3>
                   <p class="body-sm">The original system only tracked when a resident was standing, sitting, or on the ground, and only alerted nurses after a fall happened. But most residents used mobility aids, so we added new body positions and a lower-priority alert for possibly dangerous movement.</p>
@@ -297,7 +298,7 @@
                 </div>
               </div>
               <p class="caption">Only nurses with permission to edit a resident’s settings may do so, and all changes are timestamped.</p>
-              <div class="feature-item-text">
+              <div class="numbered-row numbered-row--feature">
                 <div class="feature-item-text-content">
                   <h3 class="h3">Custom alert settings provide more individualized care</h3>
                   <p class="body-sm">Risky movement for some residents is completely normal for others. To avoid excessive alerts, nurses can control what they want to be aware of.</p>
@@ -325,7 +326,7 @@
                 </div>
               </div>
               <p class="caption">Notes and tags help shift workers quickly understand each resident's care needs.</p>
-              <div class="feature-item-text">
+              <div class="numbered-row numbered-row--feature">
                 <div class="feature-item-text-content">
                   <h3 class="h3">Notes and tags keep care consistent with varied staff</h3>
                   <p class="body-sm">Staffing changes frequently and a patient's care needs can get lost in the various communication channels nurses use. A patient's detail page keeps it all in one place.</p>
@@ -353,7 +354,7 @@
                 </div>
               </div>
               <p class="caption">The timeline records exactly when staff entered the room after an incident.</p>
-              <div class="feature-item-text">
+              <div class="numbered-row numbered-row--feature">
                 <div class="feature-item-text-content">
                   <h3 class="h3">Keeping track of incident response times</h3>
                   <p class="body-sm">We introduced a timeline that shows exactly when a nurse entered the room after an incident, helping staff verify response times.</p>
@@ -371,11 +372,11 @@
         <h2>Lasting impact beyond the screen</h2>
         <p>Like any startup, Cherish's priorities were rapidly evolving. After this project, the company shifted its focus towards in-home devices, pausing development of the assisted living platform. Nonetheless, our impact was still felt.</p>
         <div class="content-blocks">
-          <article class="content-block">
+          <article class="content-card content-card--block">
             <h3 class="content-block-title">Redirected AI training efforts</h3>
             <p class="content-block-body">While the AI team had been training their models to detect falls from a person sitting or standing, our research shifted their focus to mobility aids like wheelchairs, as well as warning signs before a fall.</p>
           </article>
-          <article class="content-block">
+          <article class="content-card content-card--block">
             <h3 class="content-block-title">Proved the value of research in an environment where speed is everything</h3>
             <p class="content-block-body">As the company's first UX research initiative, this project encouraged lightweight usability testing and early validation in subsequent design work.</p>
           </article>
@@ -386,7 +387,7 @@
   </div>
 
   <!-- ─── SEE MORE WORK ─── -->
-  <section class="see-more" aria-label="More work">
+  <!-- <section class="see-more" aria-label="More work">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
       <p class="see-more-label">More work</p>
       <div class="work-grid">
@@ -407,7 +408,7 @@
         </a>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- FOOTER -->
   <footer class="footer" id="site-footer">

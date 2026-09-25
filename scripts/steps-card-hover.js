@@ -4,7 +4,7 @@ function randomTilt() {
   return sign * angle;
 }
 
-document.querySelectorAll('.steps-card').forEach((card) => {
+document.querySelectorAll('.content-card--steps').forEach((card) => {
   card.addEventListener('mouseenter', () => {
     card.style.setProperty('--steps-card-tilt', `${randomTilt()}deg`);
   });
