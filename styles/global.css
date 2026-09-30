@@ -1423,6 +1423,32 @@ h2 {
   color: var(--color-text);
 }
 
+.inline-button {
+  display: inline;
+  font-family: var(--font-sans);
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  text-decoration: none;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+.inline-button:hover {
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.inline-button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
 /* ─── --framed (about photos): polaroid chrome ─── */
 .spread-stack__frame {
   background: #FFFEFB;
