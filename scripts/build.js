@@ -13,6 +13,7 @@ const PAGES = [
   { file: 'index.html', route: '/index.html' },
   { file: 'about.html', route: '/about.html' },
   { file: 'case-studies/cherish.html', route: '/case-studies/cherish.html' },
+  { file: 'case-studies/loophole.html', route: '/case-studies/loophole.html' },
 ];
 
 function escapeRegExp(str) {

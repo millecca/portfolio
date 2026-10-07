@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Components</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/global.css" />
+</head>
+<body>
+
+  <!-- pattern: .page-layout / .side-nav / main.content
+       scripts: side-nav.js -->
+  <div class="page-layout">
+    <aside>
+      <nav class="side-nav" aria-label="Component examples">
+        <ul>
+          <li><a href="#case-study-header" class="active">Case study header</a></li>
+          <li><a href="#img-block">Image block</a></li>
+          <li><a href="#img-block-row">Image block row</a></li>
+          <li><a href="#section">Section</a></li>
+          <li><a href="#compare-slider">Compare slider</a></li>
+          <li><a href="#steps">Steps</a></li>
+          <li><a href="#numbered-divider">Numbered divider</a></li>
+          <li><a href="#spread-stack">Spread stack</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#case-hero-video">Hero video</a></li>
+          <li><a href="#case-hero-image">Hero image</a></li>
+          <li><a href="#content-blocks">Content blocks</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+
+      <!-- pattern: .case-study-header, .section-label, .meta-row, .meta-item
+           scripts: none -->
+      <header class="case-study-header" id="case-study-header">
+        <p class="section-label">Project name | Descriptor</p>
+        <h1>Case study title</h1>
+        <p>One-sentence summary of the project.</p>
+        <dl class="meta-row">
+          <div class="meta-item"><dt>My Role</dt><dd>Role</dd></div>
+          <div class="meta-item"><dt>Timeline</dt><dd>Duration</dd></div>
+          <div class="meta-item"><dt>Industry</dt><dd>Industry</dd></div>
+        </dl>
+      </header>
+      <!-- /pattern: .case-study-header -->
+
+      <!-- pattern: .img-block, .caption
+           scripts: image-lightbox.js
+           media: Cherish stand-in -->
+      <div id="img-block">
+        <div class="img-block"><img src="images/cherish/context.png" alt="Placeholder image" /></div>
+        <p class="caption">Caption under a single image.</p>
+      </div>
+      <!-- /pattern: .img-block -->
+
+      <!-- pattern: .img-block-row, .img-block, .caption
+           scripts: image-lightbox.js
+           media: Cherish stand-in -->
+      <div id="img-block-row">
+        <div class="img-block-row">
+          <div class="img-block"><img src="images/cherish/timeline-graphic.png" alt="Placeholder image one" /></div>
+          <div class="img-block"><img src="images/cherish/resolve-graphic.png" alt="Placeholder image two" /></div>
+          <div class="img-block"><img src="images/cherish/cards-graphic.png" alt="Placeholder image three" /></div>
+        </div>
+        <p class="caption">Caption under a row of images.</p>
+      </div>
+      <!-- /pattern: .img-block-row -->
+
+      <!-- pattern: .section, .section-label
+           scripts: none -->
+      <section class="section" id="section">
+        <p class="section-label">Section label</p>
+        <h2>Section title</h2>
+        <p>Section body copy. Captions inside a section keep caption styling only.</p>
+      </section>
+      <!-- /pattern: .section -->
+
+      <!-- pattern: .compare-slider, .compare-slider-label-before, .compare-slider-label-after, .caption
+           scripts: compare-slider.js
+           media: Cherish stand-in -->
+      <div id="compare-slider">
+        <div class="compare-slider" data-compare-slider data-start="50">
+          <div class="compare-slider-viewport">
+            <img
+              class="compare-slider-after"
+              src="images/cherish/After.png"
+              alt="After"
+              width="2400"
+              height="1350"
+            />
+            <div class="compare-slider-before">
+              <img
+                src="images/cherish/Before.png"
+                alt="Before"
+                width="2400"
+                height="1350"
+              />
+            </div>
+            <span class="compare-slider-label compare-slider-label-before">Before</span>
+            <span class="compare-slider-label compare-slider-label-after">After</span>
+            <div
+              class="compare-slider-handle"
+              role="slider"
+              aria-label="Compare before and after"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="50"
+              tabindex="0"
+            >
+              <span class="compare-slider-handle-line" aria-hidden="true"></span>
+              <span class="compare-slider-handle-thumb" aria-hidden="true">
+                <img src="images/icons/compare/drag.svg" alt="" width="24" height="24" draggable="false" />
+              </span>
+            </div>
+          </div>
+        </div>
+        <p class="caption">Caption under a compare slider.</p>
+      </div>
+      <!-- /pattern: .compare-slider -->
+
+      <!-- pattern: .steps-grid, .content-card.content-card--steps, .steps-card-number, .steps-card-title, .body-sm, .steps-card-image
+           scripts: steps-card-hover.js
+           media: Cherish stand-in -->
+      <div class="steps-grid" id="steps">
+        <article class="content-card content-card--steps">
+          <p class="steps-card-number">01</p>
+          <h3 class="steps-card-title">Step one</h3>
+          <p class="body-sm">Short description of the first step.</p>
+          <div class="steps-card-image" aria-hidden="true">
+            <img src="images/cherish/secondary-research.png" alt="" />
+          </div>
+        </article>
+        <article class="content-card content-card--steps">
+          <p class="steps-card-number">02</p>
+          <h3 class="steps-card-title">Step two</h3>
+          <p class="body-sm">Short description of the second step.</p>
+          <div class="steps-card-image" aria-hidden="true">
+            <img src="images/cherish/field-research.png" alt="" />
+          </div>
+        </article>
+        <article class="content-card content-card--steps">
+          <p class="steps-card-number">03</p>
+          <h3 class="steps-card-title">Step three</h3>
+          <p class="body-sm">Short description of the third step.</p>
+          <div class="steps-card-image" aria-hidden="true">
+            <img src="images/cherish/data-analysis.png" alt="" />
+          </div>
+        </article>
+      </div>
+      <!-- /pattern: .steps-grid -->
+
+      <!-- pattern: .research-subsection, .insight-list, .numbered-row.numbered-row--divider, .h3, .body-sm, .insight-row-number
+           scripts: none -->
+      <div class="research-subsection" id="numbered-divider">
+        <p class="section-label">Subsection label</p>
+        <h2>What the numbered rows introduce</h2>
+        <p>Body copy above the divider rows.</p>
+        <div class="insight-list">
+          <article class="numbered-row numbered-row--divider">
+            <div class="insight-row-content">
+              <h3 class="h3">First insight, with an <em>emphasized phrase.</em></h3>
+              <p class="body-sm">Supporting detail for the first row.</p>
+            </div>
+            <span class="insight-row-number" aria-hidden="true">01</span>
+          </article>
+          <article class="numbered-row numbered-row--divider">
+            <div class="insight-row-content">
+              <h3 class="h3">Second insight.</h3>
+              <p class="body-sm">Supporting detail for the second row. The last row keeps a bottom border.</p>
+            </div>
+            <span class="insight-row-number" aria-hidden="true">02</span>
+          </article>
+        </div>
+      </div>
+      <!-- /pattern: .numbered-row.numbered-row--divider -->
+
+      <!-- pattern: .spread-stack.spread-stack--horizontal, .spread-stack__item--left, .spread-stack__item--front, .spread-stack__item--right
+           scripts: none
+           media: Cherish stand-in -->
+      <div class="spread-stack spread-stack--horizontal" id="spread-stack">
+        <div class="spread-stack__inner">
+          <div class="spread-stack__item spread-stack__item--left"><img src="images/cherish/wireframe-1.png" alt="Wireframe one" /></div>
+          <div class="spread-stack__item spread-stack__item--front"><img src="images/cherish/wireframe-2.png" alt="Wireframe two" /></div>
+          <div class="spread-stack__item spread-stack__item--right"><img src="images/cherish/wireframe-3.png" alt="Wireframe three" /></div>
+        </div>
+      </div>
+      <!-- /pattern: .spread-stack.spread-stack--horizontal -->
+
+      <!-- pattern: .section.section--features, .features-block, .feature-item, .screen-demo, .caption, .numbered-row.numbered-row--feature, .h3, .body-sm, .insight-row-number
+           scripts: screen-demo-video.js
+           media: Cherish stand-in -->
+      <section class="section section--features" id="features">
+        <div class="features-block">
+          <div class="features-intro">
+            <p class="section-label">What I designed</p>
+            <h2>Feature section title</h2>
+          </div>
+          <div class="features-items">
+            <article class="feature-item">
+              <div class="feature-item-media">
+                <div class="screen-demo" data-screen-demo>
+                  <div class="screen-demo-frame">
+                    <video
+                      class="screen-demo-video"
+                      src="videos/cherish/risky-movement.mp4"
+                      width="2880"
+                      height="1800"
+                      muted
+                      loop
+                      playsinline
+                      preload="metadata"
+                      aria-label="Placeholder feature demo. Tap to pause or play."
+                    ></video>
+                  </div>
+                </div>
+              </div>
+              <p class="caption">Caption under a feature video.</p>
+              <div class="numbered-row numbered-row--feature">
+                <div class="feature-item-text-content">
+                  <h3 class="h3">Feature title</h3>
+                  <p class="body-sm">Feature description.</p>
+                </div>
+                <span class="feature-num insight-row-number">01</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- /pattern: .section.section--features -->
+
+      <!-- pattern: .case-hero.case-hero--video
+           swap: replace this whole block
+           scripts: screen-demo-video.js
+           media: Cherish stand-in -->
+      <div class="case-hero case-hero--video" id="case-hero-video">
+        <div class="screen-demo" data-screen-demo>
+          <div class="screen-demo-frame">
+            <video
+              class="screen-demo-video"
+              src="videos/cherish/hero-video.mp4"
+              width="2880"
+              height="1800"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Placeholder hero video. Tap to pause or play."
+            ></video>
+          </div>
+        </div>
+      </div>
+      <!-- /pattern: .case-hero.case-hero--video -->
+
+      <!-- pattern: .case-hero.case-hero--image
+           swap: replace this whole block
+           scripts: none
+           media: home Loophole stand-in -->
+      <div class="case-hero case-hero--image" id="case-hero-image">
+        <img src="images/home/loophole-hero.png" alt="" />
+      </div>
+      <!-- /pattern: .case-hero.case-hero--image -->
+
+      <!-- pattern: .content-blocks, .content-card.content-card--block, .content-block-title, .content-block-body
+           scripts: none -->
+      <div class="content-blocks" id="content-blocks">
+        <article class="content-card content-card--block">
+          <h3 class="content-block-title">Outcome title</h3>
+          <p class="content-block-body">Outcome description.</p>
+        </article>
+        <article class="content-card content-card--block">
+          <h3 class="content-block-title">Second outcome title</h3>
+          <p class="content-block-body">Second outcome description.</p>
+        </article>
+      </div>
+      <!-- /pattern: .content-blocks -->
+
+    </main>
+  </div>
+  <!-- /pattern: .page-layout / .side-nav / main.content -->
+
+  <script src="scripts/side-nav.js"></script>
+  <script src="scripts/screen-demo-video.js"></script>
+  <script src="scripts/compare-slider.js"></script>
+  <script src="scripts/steps-card-hover.js"></script>
+  <script src="scripts/image-lightbox.js"></script>
+</body>
+</html>
