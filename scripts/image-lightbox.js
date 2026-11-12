@@ -1,5 +1,5 @@
 (function () {
-  const ZOOMABLE_SELECTOR = '.img-block img[src]';
+  const ZOOMABLE_SELECTOR = '.img-block img[src], .full-width-image img[src]';
 
   let lightbox;
   let lightboxImg;
@@ -70,6 +70,8 @@
 
   function initZoomableImages() {
     document.querySelectorAll(ZOOMABLE_SELECTOR).forEach((img) => {
+      if (img.closest('.next-case-study')) return;
+
       img.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();

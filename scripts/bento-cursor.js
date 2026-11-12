@@ -1,7 +1,9 @@
 document.querySelectorAll('.bento-card').forEach((card) => {
-  const media = card.querySelector('.bento-card-media');
+  const target = card.classList.contains('next-case-study')
+    ? card
+    : card.querySelector('.bento-card-media');
   const cta = card.querySelector('.bento-card-cta');
-  if (!media || !cta) return;
+  if (!target || !cta) return;
 
   function moveCta(clientX, clientY) {
     const cardRect = card.getBoundingClientRect();
@@ -9,16 +11,16 @@ document.querySelectorAll('.bento-card').forEach((card) => {
     cta.style.top = `${clientY - cardRect.top}px`;
   }
 
-  media.addEventListener('mouseenter', (event) => {
+  target.addEventListener('mouseenter', (event) => {
     cta.classList.add('is-visible');
     moveCta(event.clientX, event.clientY);
   });
 
-  media.addEventListener('mouseleave', () => {
+  target.addEventListener('mouseleave', () => {
     cta.classList.remove('is-visible');
   });
 
-  media.addEventListener('mousemove', (event) => {
+  target.addEventListener('mousemove', (event) => {
     moveCta(event.clientX, event.clientY);
   });
 });

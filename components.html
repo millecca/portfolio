@@ -39,13 +39,13 @@
       <!-- pattern: .case-study-header, .section-label, .meta-row, .meta-item
            scripts: none -->
       <header class="case-study-header" id="case-study-header">
-        <p class="section-label">Project name | Descriptor</p>
+        <p class="section-label label-sm">Project name | Descriptor</p>
         <h1>Case study title</h1>
         <p>One-sentence summary of the project.</p>
         <dl class="meta-row">
-          <div class="meta-item"><dt>My Role</dt><dd>Role</dd></div>
-          <div class="meta-item"><dt>Timeline</dt><dd>Duration</dd></div>
-          <div class="meta-item"><dt>Industry</dt><dd>Industry</dd></div>
+          <div class="meta-item"><dt class="label-sm">My Role</dt><dd>Role</dd></div>
+          <div class="meta-item"><dt class="label-sm">Timeline</dt><dd>Duration</dd></div>
+          <div class="meta-item"><dt class="label-sm">Industry</dt><dd>Industry</dd></div>
         </dl>
       </header>
       <!-- /pattern: .case-study-header -->
@@ -59,23 +59,31 @@
       </div>
       <!-- /pattern: .img-block -->
 
-      <!-- pattern: .img-block-row, .img-block, .caption
+      <!-- pattern: .img-block-row, .img-block-item, .img-block, .caption
            scripts: image-lightbox.js
-           media: Cherish stand-in -->
+           media: Cherish stand-in
+           captions: include .caption on an item to show it; omit .caption to hide it -->
       <div id="img-block-row">
         <div class="img-block-row">
-          <div class="img-block"><img src="images/cherish/timeline-graphic.png" alt="Placeholder image one" /></div>
-          <div class="img-block"><img src="images/cherish/resolve-graphic.png" alt="Placeholder image two" /></div>
-          <div class="img-block"><img src="images/cherish/cards-graphic.png" alt="Placeholder image three" /></div>
+          <div class="img-block-item">
+            <div class="img-block"><img src="images/cherish/timeline-graphic.png" alt="Placeholder image one" /></div>
+            <p class="caption">Caption under the first image.</p>
+          </div>
+          <div class="img-block-item">
+            <div class="img-block"><img src="images/cherish/resolve-graphic.png" alt="Placeholder image two" /></div>
+          </div>
+          <div class="img-block-item">
+            <div class="img-block"><img src="images/cherish/cards-graphic.png" alt="Placeholder image three" /></div>
+            <p class="caption">Caption under the third image.</p>
+          </div>
         </div>
-        <p class="caption">Caption under a row of images.</p>
       </div>
       <!-- /pattern: .img-block-row -->
 
       <!-- pattern: .section, .section-label
            scripts: none -->
       <section class="section" id="section">
-        <p class="section-label">Section label</p>
+        <p class="section-label label-sm">Section label</p>
         <h2>Section title</h2>
         <p>Section body copy. Captions inside a section keep caption styling only.</p>
       </section>
@@ -158,7 +166,7 @@
       <!-- pattern: .research-subsection, .insight-list, .numbered-row.numbered-row--divider, .h3, .body-sm, .insight-row-number
            scripts: none -->
       <div class="research-subsection" id="numbered-divider">
-        <p class="section-label">Subsection label</p>
+        <p class="section-label label-sm">Subsection label</p>
         <h2>What the numbered rows introduce</h2>
         <p>Body copy above the divider rows.</p>
         <div class="insight-list">
@@ -198,7 +206,7 @@
       <section class="section section--features" id="features">
         <div class="features-block">
           <div class="features-intro">
-            <p class="section-label">What I designed</p>
+            <p class="section-label label-sm">What I designed</p>
             <h2>Feature section title</h2>
           </div>
           <div class="features-items">
@@ -257,14 +265,14 @@
       </div>
       <!-- /pattern: .case-hero.case-hero--video -->
 
-      <!-- pattern: .case-hero.case-hero--image
+      <!-- pattern: .case-hero.full-width-image
            swap: replace this whole block
            scripts: none
            media: home Loophole stand-in -->
-      <div class="case-hero case-hero--image" id="case-hero-image">
+      <div class="case-hero full-width-image" id="case-hero-image">
         <img src="images/home/loophole-hero.png" alt="" />
       </div>
-      <!-- /pattern: .case-hero.case-hero--image -->
+      <!-- /pattern: .case-hero.full-width-image -->
 
       <!-- pattern: .content-blocks, .content-card.content-card--block, .content-block-title, .content-block-body
            scripts: none -->
